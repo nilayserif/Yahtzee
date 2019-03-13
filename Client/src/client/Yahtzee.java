@@ -27,14 +27,22 @@ public class Yahtzee extends javax.swing.JFrame {
     /**
      * Creates new form Yahtzee
      */
-    public static ArrayList<ImageIcon> icons;
-    static int sayac;
-    Random rnd = new Random();
-    int k;
-    ArrayList<String> secilen = new ArrayList<String>();
+    
     public Yahtzee() {
         sayac = 0;
         icons = new ArrayList<ImageIcon>();
+        ImageIcon icn1 = new ImageIcon("C:\\Users\\Asus\\Desktop\\New Folder\\Client\\src\\client\\images\\bir.png");
+        ImageIcon icn2 = new ImageIcon("C:\\Users\\Asus\\Desktop\\New Folder\\Client\\src\\client\\images\\iki.png");
+        ImageIcon icn3 = new ImageIcon("C:\\Users\\Asus\\Desktop\\New Folder\\Client\\src\\client\\images\\uç.png");
+        ImageIcon icn4 = new ImageIcon("C:\\Users\\Asus\\Desktop\\New Folder\\Client\\src\\client\\images\\dort.png");
+        ImageIcon icn5 = new ImageIcon("C:\\Users\\Asus\\Desktop\\New Folder\\Client\\src\\client\\images\\bes.png");
+        ImageIcon icn6 = new ImageIcon("C:\\Users\\Asus\\Desktop\\New Folder\\Client\\src\\client\\images\\alti.png");
+        icons.add(icn1);
+        icons.add(icn2);
+        icons.add(icn3);
+        icons.add(icn4);
+        icons.add(icn5);
+        icons.add(icn6);
         initComponents();
 
     }
@@ -64,22 +72,15 @@ public class Yahtzee extends javax.swing.JFrame {
 
         }
     };
-    
+    public static ArrayList<ImageIcon> icons;
+    static int sayac;
+    Random rnd = new Random();
+    int k;
+    ArrayList<String> secilen = new ArrayList<String>();
 
     public void Roll() throws InterruptedException {
         sayac++;
-        ImageIcon icn1 = new ImageIcon("C:\\Users\\Asus\\Desktop\\New Folder\\Client\\src\\client\\images\\bir.png");
-        ImageIcon icn2 = new ImageIcon("C:\\Users\\Asus\\Desktop\\New Folder\\Client\\src\\client\\images\\iki.png");
-        ImageIcon icn3 = new ImageIcon("C:\\Users\\Asus\\Desktop\\New Folder\\Client\\src\\client\\images\\uç.png");
-        ImageIcon icn4 = new ImageIcon("C:\\Users\\Asus\\Desktop\\New Folder\\Client\\src\\client\\images\\dort.png");
-        ImageIcon icn5 = new ImageIcon("C:\\Users\\Asus\\Desktop\\New Folder\\Client\\src\\client\\images\\bes.png");
-        ImageIcon icn6 = new ImageIcon("C:\\Users\\Asus\\Desktop\\New Folder\\Client\\src\\client\\images\\alti.png");
-        icons.add(icn1);
-        icons.add(icn2);
-        icons.add(icn3);
-        icons.add(icn4);
-        icons.add(icn5);
-        icons.add(icn6);
+        
         Thread t = new Thread(r);
         t.start();
     }
