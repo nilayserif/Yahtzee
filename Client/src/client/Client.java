@@ -5,17 +5,39 @@
  */
 package client;
 
+import com.sun.corba.se.impl.io.OutputStreamHook;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+
 /**
  *
  * @author Asus
  */
 public class Client {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static Socket Socket;
+    public static ObjectOutputStream Out;
+    public static ObjectInputStream In;
+
+    //public static Listen listen;
+    public void Start(String ip, int port) throws IOException {
+        Client.Socket = new Socket(ip, port);
+        Client.Out = new ObjectOutputStream(Client.Socket.getOutputStream());
+        Client.In = new ObjectInputStream(Client.Socket.getInputStream());
     }
-    
+
+    public void Stop() throws IOException {
+        if (Client.Socket != null) {
+            //Client.listen.stop();
+            Client.Socket.close();
+            Client.Out.flush();
+            Client.In.close();
+
+        }
+    }
+    public void Send(Object msg) throws IOException{
+        Client.Out.writeObject(msg);
+    }
 }

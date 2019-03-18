@@ -168,6 +168,42 @@ public class Yahtzee extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/altı.png"))); // NOI18N
 
+        btn_bir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_birActionPerformed(evt);
+            }
+        });
+
+        btn_iki.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ikiActionPerformed(evt);
+            }
+        });
+
+        btn_uc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ucActionPerformed(evt);
+            }
+        });
+
+        btn_dort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_dortActionPerformed(evt);
+            }
+        });
+
+        btn_bes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_besActionPerformed(evt);
+            }
+        });
+
+        btn_alti.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_altiActionPerformed(evt);
+            }
+        });
+
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/3x.png"))); // NOI18N
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/4x.png"))); // NOI18N
@@ -324,9 +360,9 @@ public class Yahtzee extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_bes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
                             .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -336,27 +372,25 @@ public class Yahtzee extends javax.swing.JFrame {
                             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGap(34, 34, 34)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel10)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btn_small, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel8)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btn_4x, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel9)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGap(52, 52, 52)
-                                        .addComponent(jLabel11)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btn_large, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(52, 52, 52)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel10)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(btn_small, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel8)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(btn_4x, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel9)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel11)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(btn_large, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                     .addGap(43, 43, 43)
                                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -368,11 +402,10 @@ public class Yahtzee extends javax.swing.JFrame {
                                 .addComponent(btn_3x, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(10, 10, 10))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
                         .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_soru, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGap(12, 12, 12)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -416,7 +449,7 @@ public class Yahtzee extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(55, 55, 55)
                                 .addComponent(btn_play, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(18, Short.MAX_VALUE))))
+                        .addContainerGap(20, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -721,6 +754,73 @@ public class Yahtzee extends javax.swing.JFrame {
         }
         lbl_secim5.setIcon(null);
     }//GEN-LAST:event_lbl_secim5MousePressed
+
+    private void btn_birActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_birActionPerformed
+        int toplam=0;
+        for (int i = 0; i < secilen.size(); i++) {
+            
+            if (secilen.get(i).equals("0")) {
+                toplam++;
+            }
+        }
+        btn_bir.setText(Integer.toString(toplam));
+        
+    }//GEN-LAST:event_btn_birActionPerformed
+
+    private void btn_ikiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ikiActionPerformed
+        int toplam=0;
+        for (int i = 0; i < secilen.size(); i++) {
+            
+            if (secilen.get(i).equals("1")) {
+                toplam+=2;
+            }
+        }
+        btn_iki.setText(Integer.toString(toplam));
+    }//GEN-LAST:event_btn_ikiActionPerformed
+
+    private void btn_ucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ucActionPerformed
+        int toplam=0;
+        for (int i = 0; i < secilen.size(); i++) {
+            
+            if (secilen.get(i).equals("2")) {
+                toplam+=3;
+            }
+        }
+        btn_uc.setText(Integer.toString(toplam));
+    }//GEN-LAST:event_btn_ucActionPerformed
+
+    private void btn_dortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dortActionPerformed
+        int toplam=0;
+        for (int i = 0; i < secilen.size(); i++) {
+            
+            if (secilen.get(i).equals("3")) {
+                toplam+=4;
+            }
+        }
+        btn_dort.setText(Integer.toString(toplam));
+    }//GEN-LAST:event_btn_dortActionPerformed
+
+    private void btn_besActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_besActionPerformed
+        int toplam=0;
+        for (int i = 0; i < secilen.size(); i++) {
+            
+            if (secilen.get(i).equals("4")) {
+                toplam+=5;
+            }
+        }
+        btn_bes.setText(Integer.toString(toplam));
+    }//GEN-LAST:event_btn_besActionPerformed
+
+    private void btn_altiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_altiActionPerformed
+        int toplam=0;
+        for (int i = 0; i < secilen.size(); i++) {
+            
+            if (secilen.get(i).equals("5")) {
+                toplam+=6;
+            }
+        }
+        btn_alti.setText(Integer.toString(toplam));
+    }//GEN-LAST:event_btn_altiActionPerformed
 
     /**
      * @param args the command line arguments
