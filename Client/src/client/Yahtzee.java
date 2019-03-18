@@ -27,7 +27,6 @@ public class Yahtzee extends javax.swing.JFrame {
     /**
      * Creates new form Yahtzee
      */
-    
     public Yahtzee() {
         sayac = 0;
         icons = new ArrayList<ImageIcon>();
@@ -80,7 +79,7 @@ public class Yahtzee extends javax.swing.JFrame {
 
     public void Roll() throws InterruptedException {
         sayac++;
-        
+
         Thread t = new Thread(r);
         t.start();
     }
@@ -217,6 +216,24 @@ public class Yahtzee extends javax.swing.JFrame {
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/yahtzee.png"))); // NOI18N
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/soruisareti.png"))); // NOI18N
+
+        btn_3x.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_3xActionPerformed(evt);
+            }
+        });
+
+        btn_4x.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_4xActionPerformed(evt);
+            }
+        });
+
+        btn_home.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_homeActionPerformed(evt);
+            }
+        });
 
         jLabel14.setText("jLabel14");
 
@@ -555,7 +572,7 @@ public class Yahtzee extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_rollActionPerformed
 
-    
+
     private void lbl_zar1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_zar1MousePressed
         ImageIcon icon = new ImageIcon();
         icon = (ImageIcon) lbl_zar1.getIcon();
@@ -695,12 +712,12 @@ public class Yahtzee extends javax.swing.JFrame {
         String tmp;
         for (int i = 0; i < 6; i++) {
             if (icon.toString().equals(icons.get(i).toString())) {
-                tmp=Integer.toString(i);
+                tmp = Integer.toString(i);
                 secilen.remove(tmp);
             }
         }
         lbl_secim1.setIcon(null);
-        
+
     }//GEN-LAST:event_lbl_secim1MousePressed
 
     private void lbl_secim2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_secim2MousePressed
@@ -709,7 +726,7 @@ public class Yahtzee extends javax.swing.JFrame {
         String tmp;
         for (int i = 0; i < 6; i++) {
             if (icon.toString().equals(icons.get(i).toString())) {
-                tmp=Integer.toString(i);
+                tmp = Integer.toString(i);
                 secilen.remove(tmp);
             }
         }
@@ -722,7 +739,7 @@ public class Yahtzee extends javax.swing.JFrame {
         String tmp;
         for (int i = 0; i < 6; i++) {
             if (icon.toString().equals(icons.get(i).toString())) {
-                tmp=Integer.toString(i);
+                tmp = Integer.toString(i);
                 secilen.remove(tmp);
             }
         }
@@ -735,7 +752,7 @@ public class Yahtzee extends javax.swing.JFrame {
         String tmp;
         for (int i = 0; i < 6; i++) {
             if (icon.toString().equals(icons.get(i).toString())) {
-                tmp=Integer.toString(i);
+                tmp = Integer.toString(i);
                 secilen.remove(tmp);
             }
         }
@@ -748,7 +765,7 @@ public class Yahtzee extends javax.swing.JFrame {
         String tmp;
         for (int i = 0; i < 6; i++) {
             if (icon.toString().equals(icons.get(i).toString())) {
-                tmp=Integer.toString(i);
+                tmp = Integer.toString(i);
                 secilen.remove(tmp);
             }
         }
@@ -756,71 +773,166 @@ public class Yahtzee extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_secim5MousePressed
 
     private void btn_birActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_birActionPerformed
-        int toplam=0;
+        int toplam = 0;
         for (int i = 0; i < secilen.size(); i++) {
-            
+
             if (secilen.get(i).equals("0")) {
                 toplam++;
             }
         }
         btn_bir.setText(Integer.toString(toplam));
-        
+
     }//GEN-LAST:event_btn_birActionPerformed
 
     private void btn_ikiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ikiActionPerformed
-        int toplam=0;
+        int toplam = 0;
         for (int i = 0; i < secilen.size(); i++) {
-            
+
             if (secilen.get(i).equals("1")) {
-                toplam+=2;
+                toplam += 2;
             }
         }
         btn_iki.setText(Integer.toString(toplam));
     }//GEN-LAST:event_btn_ikiActionPerformed
 
     private void btn_ucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ucActionPerformed
-        int toplam=0;
+        int toplam = 0;
         for (int i = 0; i < secilen.size(); i++) {
-            
+
             if (secilen.get(i).equals("2")) {
-                toplam+=3;
+                toplam += 3;
             }
         }
         btn_uc.setText(Integer.toString(toplam));
     }//GEN-LAST:event_btn_ucActionPerformed
 
     private void btn_dortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dortActionPerformed
-        int toplam=0;
+        int toplam = 0;
         for (int i = 0; i < secilen.size(); i++) {
-            
+
             if (secilen.get(i).equals("3")) {
-                toplam+=4;
+                toplam += 4;
             }
         }
         btn_dort.setText(Integer.toString(toplam));
     }//GEN-LAST:event_btn_dortActionPerformed
 
     private void btn_besActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_besActionPerformed
-        int toplam=0;
+        int toplam = 0;
         for (int i = 0; i < secilen.size(); i++) {
-            
+
             if (secilen.get(i).equals("4")) {
-                toplam+=5;
+                toplam += 5;
             }
         }
         btn_bes.setText(Integer.toString(toplam));
     }//GEN-LAST:event_btn_besActionPerformed
 
     private void btn_altiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_altiActionPerformed
-        int toplam=0;
+        int toplam = 0;
         for (int i = 0; i < secilen.size(); i++) {
-            
+
             if (secilen.get(i).equals("5")) {
-                toplam+=6;
+                toplam += 6;
             }
         }
         btn_alti.setText(Integer.toString(toplam));
     }//GEN-LAST:event_btn_altiActionPerformed
+
+    private void btn_3xActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_3xActionPerformed
+        int sayac = 0;
+        int toplam=0;
+        for (int i = 0; i < secilen.size(); i++) {
+            for (int j = i+1; j < secilen.size(); j++) {
+                
+                if (secilen.get(i).equals(secilen.get(j))) {
+                    sayac++;
+                    toplam+=(Integer.parseInt(secilen.get(i))+1);
+                }
+            }
+            sayac++;
+            toplam+=Integer.parseInt(secilen.get(i))+1;
+            if (sayac<3) {
+                sayac=0;
+                toplam=0;
+            }
+            else{
+                break;
+            }
+        }
+        btn_3x.setText(Integer.toString(toplam));
+
+
+    }//GEN-LAST:event_btn_3xActionPerformed
+
+    private void btn_4xActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_4xActionPerformed
+        int sayac = 0;
+        int toplam=0;
+        for (int i = 0; i < secilen.size(); i++) {
+            for (int j = i+1; j < secilen.size(); j++) {
+                
+                if (secilen.get(i).equals(secilen.get(j))) {
+                    sayac++;
+                    toplam+=(Integer.parseInt(secilen.get(i))+1);
+                }
+            }
+            sayac++;
+            toplam+=Integer.parseInt(secilen.get(i))+1;
+            if (sayac<4) {
+                sayac=0;
+                toplam=0;
+            }
+            else{
+                break;
+            }
+        }
+        btn_4x.setText(Integer.toString(toplam));
+    }//GEN-LAST:event_btn_4xActionPerformed
+
+    private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
+        int sayac1 = 0,sayac2=0;
+        for (int i = 0; i < secilen.size(); i++) {
+            for (int j = i+1; j < secilen.size(); j++) {
+                
+                if (secilen.get(i).equals(secilen.get(j))) {
+                    sayac1++;
+                    
+                }
+            }
+            sayac1++;
+            
+            if (sayac1<3) {
+                sayac1=0;
+                
+            }
+            
+            else{
+                break;
+            }
+        }
+        for (int i = 0; i < secilen.size(); i++) {
+            for (int j = i+1; j < secilen.size(); j++) {
+                
+                if (secilen.get(i).equals(secilen.get(j))) {
+                    sayac2++;
+                    
+                }
+            }
+            sayac2++;
+            
+            if (sayac2>2 || sayac2<2) {
+                sayac2=0;
+                
+            }
+            else{
+                break;
+            }
+            
+        }
+        if (sayac1==3 && sayac2==2) {
+            btn_home.setText("25");
+        }
+    }//GEN-LAST:event_btn_homeActionPerformed
 
     /**
      * @param args the command line arguments

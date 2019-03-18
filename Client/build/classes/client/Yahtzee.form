@@ -434,10 +434,19 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btn_3x">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_3xActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_4x">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_4xActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_home">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_homeActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_small">
         </Component>
