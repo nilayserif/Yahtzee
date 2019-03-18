@@ -449,12 +449,24 @@
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_small">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_smallActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_large">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_largeActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_yahtzee">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_yahtzeeActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_soru">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_soruActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel14">
           <Properties>

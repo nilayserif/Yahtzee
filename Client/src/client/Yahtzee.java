@@ -235,6 +235,30 @@ public class Yahtzee extends javax.swing.JFrame {
             }
         });
 
+        btn_small.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_smallActionPerformed(evt);
+            }
+        });
+
+        btn_large.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_largeActionPerformed(evt);
+            }
+        });
+
+        btn_yahtzee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_yahtzeeActionPerformed(evt);
+            }
+        });
+
+        btn_soru.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_soruActionPerformed(evt);
+            }
+        });
+
         jLabel14.setText("jLabel14");
 
         jLabel15.setText("jLabel15");
@@ -780,7 +804,21 @@ public class Yahtzee extends javax.swing.JFrame {
                 toplam++;
             }
         }
-        btn_bir.setText(Integer.toString(toplam));
+        if (toplam > 0) {
+            btn_bir.setText(Integer.toString(toplam));
+            btn_iki.setEnabled(false);
+            btn_uc.setEnabled(false);
+            btn_dort.setEnabled(false);
+            btn_bes.setEnabled(false);
+            btn_alti.setEnabled(false);
+            btn_3x.setEnabled(false);
+            btn_4x.setEnabled(false);
+            btn_home.setEnabled(false);
+            btn_small.setEnabled(false);
+            btn_large.setEnabled(false);
+            btn_yahtzee.setEnabled(false);
+            btn_soru.setEnabled(false);
+        }
 
     }//GEN-LAST:event_btn_birActionPerformed
 
@@ -792,7 +830,21 @@ public class Yahtzee extends javax.swing.JFrame {
                 toplam += 2;
             }
         }
-        btn_iki.setText(Integer.toString(toplam));
+        if (toplam > 0) {
+            btn_iki.setText(Integer.toString(toplam));
+            btn_bir.setEnabled(false);
+            btn_uc.setEnabled(false);
+            btn_dort.setEnabled(false);
+            btn_bes.setEnabled(false);
+            btn_alti.setEnabled(false);
+            btn_3x.setEnabled(false);
+            btn_4x.setEnabled(false);
+            btn_home.setEnabled(false);
+            btn_small.setEnabled(false);
+            btn_large.setEnabled(false);
+            btn_yahtzee.setEnabled(false);
+            btn_soru.setEnabled(false);
+        }
     }//GEN-LAST:event_btn_ikiActionPerformed
 
     private void btn_ucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ucActionPerformed
@@ -803,7 +855,21 @@ public class Yahtzee extends javax.swing.JFrame {
                 toplam += 3;
             }
         }
-        btn_uc.setText(Integer.toString(toplam));
+        if (toplam > 0) {
+            btn_uc.setText(Integer.toString(toplam));
+            btn_iki.setEnabled(false);
+            btn_bir.setEnabled(false);
+            btn_dort.setEnabled(false);
+            btn_bes.setEnabled(false);
+            btn_alti.setEnabled(false);
+            btn_3x.setEnabled(false);
+            btn_4x.setEnabled(false);
+            btn_home.setEnabled(false);
+            btn_small.setEnabled(false);
+            btn_large.setEnabled(false);
+            btn_yahtzee.setEnabled(false);
+            btn_soru.setEnabled(false);
+        }
     }//GEN-LAST:event_btn_ucActionPerformed
 
     private void btn_dortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dortActionPerformed
@@ -814,7 +880,21 @@ public class Yahtzee extends javax.swing.JFrame {
                 toplam += 4;
             }
         }
-        btn_dort.setText(Integer.toString(toplam));
+        if (toplam > 0) {
+            btn_dort.setText(Integer.toString(toplam));
+            btn_iki.setEnabled(false);
+            btn_uc.setEnabled(false);
+            btn_bir.setEnabled(false);
+            btn_bes.setEnabled(false);
+            btn_alti.setEnabled(false);
+            btn_3x.setEnabled(false);
+            btn_4x.setEnabled(false);
+            btn_home.setEnabled(false);
+            btn_small.setEnabled(false);
+            btn_large.setEnabled(false);
+            btn_yahtzee.setEnabled(false);
+            btn_soru.setEnabled(false);
+        }
     }//GEN-LAST:event_btn_dortActionPerformed
 
     private void btn_besActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_besActionPerformed
@@ -825,7 +905,21 @@ public class Yahtzee extends javax.swing.JFrame {
                 toplam += 5;
             }
         }
-        btn_bes.setText(Integer.toString(toplam));
+        if (toplam > 0) {
+            btn_bes.setText(Integer.toString(toplam));
+            btn_iki.setEnabled(false);
+            btn_uc.setEnabled(false);
+            btn_dort.setEnabled(false);
+            btn_bir.setEnabled(false);
+            btn_alti.setEnabled(false);
+            btn_3x.setEnabled(false);
+            btn_4x.setEnabled(false);
+            btn_home.setEnabled(false);
+            btn_small.setEnabled(false);
+            btn_large.setEnabled(false);
+            btn_yahtzee.setEnabled(false);
+            btn_soru.setEnabled(false);
+        }
     }//GEN-LAST:event_btn_besActionPerformed
 
     private void btn_altiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_altiActionPerformed
@@ -836,103 +930,271 @@ public class Yahtzee extends javax.swing.JFrame {
                 toplam += 6;
             }
         }
-        btn_alti.setText(Integer.toString(toplam));
+        if (toplam > 0) {
+            btn_alti.setText(Integer.toString(toplam));
+            btn_iki.setEnabled(false);
+            btn_uc.setEnabled(false);
+            btn_dort.setEnabled(false);
+            btn_bes.setEnabled(false);
+            btn_bir.setEnabled(false);
+            btn_3x.setEnabled(false);
+            btn_4x.setEnabled(false);
+            btn_home.setEnabled(false);
+            btn_small.setEnabled(false);
+            btn_large.setEnabled(false);
+            btn_yahtzee.setEnabled(false);
+            btn_soru.setEnabled(false);
+        }
     }//GEN-LAST:event_btn_altiActionPerformed
 
     private void btn_3xActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_3xActionPerformed
         int sayac = 0;
-        int toplam=0;
+        int toplam = 0;
         for (int i = 0; i < secilen.size(); i++) {
-            for (int j = i+1; j < secilen.size(); j++) {
-                
+            for (int j = i + 1; j < secilen.size(); j++) {
+
                 if (secilen.get(i).equals(secilen.get(j))) {
                     sayac++;
-                    toplam+=(Integer.parseInt(secilen.get(i))+1);
+                    toplam += (Integer.parseInt(secilen.get(i)) + 1);
                 }
             }
             sayac++;
-            toplam+=Integer.parseInt(secilen.get(i))+1;
-            if (sayac<3) {
-                sayac=0;
-                toplam=0;
-            }
-            else{
+            toplam += Integer.parseInt(secilen.get(i)) + 1;
+            if (sayac < 3) {
+                sayac = 0;
+                toplam = 0;
+            } else {
                 break;
             }
         }
-        btn_3x.setText(Integer.toString(toplam));
-
+        if (sayac >= 3) {
+            btn_3x.setText(Integer.toString(toplam));
+            btn_iki.setEnabled(false);
+            btn_uc.setEnabled(false);
+            btn_dort.setEnabled(false);
+            btn_bes.setEnabled(false);
+            btn_alti.setEnabled(false);
+            btn_bir.setEnabled(false);
+            btn_4x.setEnabled(false);
+            btn_home.setEnabled(false);
+            btn_small.setEnabled(false);
+            btn_large.setEnabled(false);
+            btn_yahtzee.setEnabled(false);
+            btn_soru.setEnabled(false);
+        }
 
     }//GEN-LAST:event_btn_3xActionPerformed
 
     private void btn_4xActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_4xActionPerformed
         int sayac = 0;
-        int toplam=0;
+        int toplam = 0;
         for (int i = 0; i < secilen.size(); i++) {
-            for (int j = i+1; j < secilen.size(); j++) {
-                
+            for (int j = i + 1; j < secilen.size(); j++) {
+
                 if (secilen.get(i).equals(secilen.get(j))) {
                     sayac++;
-                    toplam+=(Integer.parseInt(secilen.get(i))+1);
+                    toplam += (Integer.parseInt(secilen.get(i)) + 1);
                 }
             }
             sayac++;
-            toplam+=Integer.parseInt(secilen.get(i))+1;
-            if (sayac<4) {
-                sayac=0;
-                toplam=0;
-            }
-            else{
+            toplam += Integer.parseInt(secilen.get(i)) + 1;
+            if (sayac < 4) {
+                sayac = 0;
+                toplam = 0;
+            } else {
                 break;
             }
         }
-        btn_4x.setText(Integer.toString(toplam));
+        if (sayac >= 4) {
+            btn_4x.setText(Integer.toString(toplam));
+            btn_iki.setEnabled(false);
+            btn_uc.setEnabled(false);
+            btn_dort.setEnabled(false);
+            btn_bes.setEnabled(false);
+            btn_alti.setEnabled(false);
+            btn_3x.setEnabled(false);
+            btn_bir.setEnabled(false);
+            btn_home.setEnabled(false);
+            btn_small.setEnabled(false);
+            btn_large.setEnabled(false);
+            btn_yahtzee.setEnabled(false);
+            btn_soru.setEnabled(false);
+        }
     }//GEN-LAST:event_btn_4xActionPerformed
 
     private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
-        int sayac1 = 0,sayac2=0;
+        int sayac1 = 0, sayac2 = 0;
         for (int i = 0; i < secilen.size(); i++) {
-            for (int j = i+1; j < secilen.size(); j++) {
-                
+            for (int j = i + 1; j < secilen.size(); j++) {
+
                 if (secilen.get(i).equals(secilen.get(j))) {
                     sayac1++;
-                    
+
                 }
             }
             sayac1++;
-            
-            if (sayac1<3) {
-                sayac1=0;
-                
-            }
-            
-            else{
+
+            if (sayac1 < 3) {
+                sayac1 = 0;
+
+            } else {
                 break;
             }
         }
         for (int i = 0; i < secilen.size(); i++) {
-            for (int j = i+1; j < secilen.size(); j++) {
-                
+            for (int j = i + 1; j < secilen.size(); j++) {
+
                 if (secilen.get(i).equals(secilen.get(j))) {
                     sayac2++;
-                    
+
                 }
             }
             sayac2++;
-            
-            if (sayac2>2 || sayac2<2) {
-                sayac2=0;
-                
-            }
-            else{
+
+            if (sayac2 > 2 || sayac2 < 2) {
+                sayac2 = 0;
+
+            } else {
                 break;
             }
-            
+
         }
-        if (sayac1==3 && sayac2==2) {
+        if (sayac1 == 3 && sayac2 == 2) {
             btn_home.setText("25");
+            btn_iki.setEnabled(false);
+            btn_uc.setEnabled(false);
+            btn_dort.setEnabled(false);
+            btn_bes.setEnabled(false);
+            btn_alti.setEnabled(false);
+            btn_3x.setEnabled(false);
+            btn_4x.setEnabled(false);
+            btn_bir.setEnabled(false);
+            btn_small.setEnabled(false);
+            btn_large.setEnabled(false);
+            btn_yahtzee.setEnabled(false);
+            btn_soru.setEnabled(false);
         }
     }//GEN-LAST:event_btn_homeActionPerformed
+
+    private void btn_smallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_smallActionPerformed
+        int sayac = 0;
+
+        for (int i = 0; i < secilen.size(); i++) {
+            for (int j = i + 1; j < secilen.size(); j++) {
+
+                if (secilen.get(i).equals(secilen.get(j))) {
+                    sayac++;
+
+                }
+            }
+            sayac++;
+
+            if (sayac < 4) {
+                sayac = 0;
+
+            } else {
+                break;
+            }
+        }
+        if (sayac >= 4) {
+            btn_small.setText("30");
+            btn_iki.setEnabled(false);
+            btn_uc.setEnabled(false);
+            btn_dort.setEnabled(false);
+            btn_bes.setEnabled(false);
+            btn_alti.setEnabled(false);
+            btn_3x.setEnabled(false);
+            btn_4x.setEnabled(false);
+            btn_home.setEnabled(false);
+            btn_bir.setEnabled(false);
+            btn_large.setEnabled(false);
+            btn_yahtzee.setEnabled(false);
+            btn_soru.setEnabled(false);
+        }
+    }//GEN-LAST:event_btn_smallActionPerformed
+
+    private void btn_largeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_largeActionPerformed
+        int sayac = 1;
+        String sec = secilen.get(0);
+        for (int i = 1; i < secilen.size(); i++) {
+
+            if (secilen.get(i).equals(sec)) {
+                sayac++;
+
+            }
+
+            if (sayac == 5) {
+                sayac = 0;
+
+            } else {
+                break;
+            }
+        }
+        if (sayac >= 5) {
+            btn_large.setText("40");
+            btn_iki.setEnabled(false);
+            btn_uc.setEnabled(false);
+            btn_dort.setEnabled(false);
+            btn_bes.setEnabled(false);
+            btn_alti.setEnabled(false);
+            btn_3x.setEnabled(false);
+            btn_4x.setEnabled(false);
+            btn_home.setEnabled(false);
+            btn_small.setEnabled(false);
+            btn_bir.setEnabled(false);
+            btn_yahtzee.setEnabled(false);
+            btn_soru.setEnabled(false);
+        }
+    }//GEN-LAST:event_btn_largeActionPerformed
+
+    private void btn_yahtzeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_yahtzeeActionPerformed
+        int sayac = 1;
+        String sec = secilen.get(0);
+        for (int i = 1; i < secilen.size(); i++) {
+
+            if (secilen.get(i).equals(sec)) {
+                sayac++;
+
+            }
+
+        }
+        if (sayac == 5) {
+            btn_yahtzee.setText("50");
+            btn_iki.setEnabled(false);
+            btn_uc.setEnabled(false);
+            btn_dort.setEnabled(false);
+            btn_bes.setEnabled(false);
+            btn_alti.setEnabled(false);
+            btn_3x.setEnabled(false);
+            btn_4x.setEnabled(false);
+            btn_home.setEnabled(false);
+            btn_small.setEnabled(false);
+            btn_large.setEnabled(false);
+            btn_bir.setEnabled(false);
+            btn_soru.setEnabled(false);
+        }
+    }//GEN-LAST:event_btn_yahtzeeActionPerformed
+
+    private void btn_soruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_soruActionPerformed
+        int toplam = 0;
+
+        for (int i = 0; i < secilen.size(); i++) {
+            toplam += (Integer.parseInt(secilen.get(i)) + 1);
+        }
+        btn_soru.setText(Integer.toString(toplam));
+        btn_iki.setEnabled(false);
+        btn_uc.setEnabled(false);
+        btn_dort.setEnabled(false);
+        btn_bes.setEnabled(false);
+        btn_alti.setEnabled(false);
+        btn_3x.setEnabled(false);
+        btn_4x.setEnabled(false);
+        btn_home.setEnabled(false);
+        btn_small.setEnabled(false);
+        btn_large.setEnabled(false);
+        btn_yahtzee.setEnabled(false);
+        btn_bir.setEnabled(false);
+    }//GEN-LAST:event_btn_soruActionPerformed
 
     /**
      * @param args the command line arguments
