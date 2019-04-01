@@ -598,6 +598,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="PLAY"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_playActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel32">
           <Properties>

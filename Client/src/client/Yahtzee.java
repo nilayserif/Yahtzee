@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
 /**
  *
@@ -27,6 +28,14 @@ public class Yahtzee extends javax.swing.JFrame {
     /**
      * Creates new form Yahtzee
      */
+    public static ArrayList<ImageIcon> icons;
+    static int sayac;
+    Random rnd = new Random();
+    int k;
+    ArrayList<String> secilen = new ArrayList<String>();
+    ArrayList<JButton> buttons;
+    int gecici;
+    Client clnt=new Client();
     public Yahtzee() {
         sayac = 0;
         icons = new ArrayList<ImageIcon>();
@@ -43,7 +52,20 @@ public class Yahtzee extends javax.swing.JFrame {
         icons.add(icn5);
         icons.add(icn6);
         initComponents();
-
+        buttons = new ArrayList<JButton>();
+        buttons.add(btn_bir);
+        buttons.add(btn_iki);
+        buttons.add(btn_uc);
+        buttons.add(btn_dort);
+        buttons.add(btn_bes);
+        buttons.add(btn_alti);
+        buttons.add(btn_3x);
+        buttons.add(btn_4x);
+        buttons.add(btn_home);
+        buttons.add(btn_small);
+        buttons.add(btn_large);
+        buttons.add(btn_yahtzee);
+        buttons.add(btn_soru);
     }
     Runnable r = new Runnable() {
         @Override
@@ -71,11 +93,6 @@ public class Yahtzee extends javax.swing.JFrame {
 
         }
     };
-    public static ArrayList<ImageIcon> icons;
-    static int sayac;
-    Random rnd = new Random();
-    int k;
-    ArrayList<String> secilen = new ArrayList<String>();
 
     public void Roll() throws InterruptedException {
         sayac++;
@@ -328,6 +345,11 @@ public class Yahtzee extends javax.swing.JFrame {
         });
 
         btn_play.setText("PLAY");
+        btn_play.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_playActionPerformed(evt);
+            }
+        });
 
         jLabel32.setText("jLabel32");
 
@@ -805,19 +827,13 @@ public class Yahtzee extends javax.swing.JFrame {
             }
         }
         if (toplam > 0) {
+            for (int i = 0; i < buttons.size(); i++) {
+                if (buttons.get(i).isEnabled()) {
+                    buttons.get(i).setText("");
+                }
+            }
             btn_bir.setText(Integer.toString(toplam));
-            btn_iki.setEnabled(false);
-            btn_uc.setEnabled(false);
-            btn_dort.setEnabled(false);
-            btn_bes.setEnabled(false);
-            btn_alti.setEnabled(false);
-            btn_3x.setEnabled(false);
-            btn_4x.setEnabled(false);
-            btn_home.setEnabled(false);
-            btn_small.setEnabled(false);
-            btn_large.setEnabled(false);
-            btn_yahtzee.setEnabled(false);
-            btn_soru.setEnabled(false);
+            gecici = buttons.indexOf(btn_bir);
         }
 
     }//GEN-LAST:event_btn_birActionPerformed
@@ -831,19 +847,13 @@ public class Yahtzee extends javax.swing.JFrame {
             }
         }
         if (toplam > 0) {
+            for (int i = 0; i < buttons.size(); i++) {
+                if (buttons.get(i).isEnabled()) {
+                    buttons.get(i).setText("");
+                }
+            }
             btn_iki.setText(Integer.toString(toplam));
-            btn_bir.setEnabled(false);
-            btn_uc.setEnabled(false);
-            btn_dort.setEnabled(false);
-            btn_bes.setEnabled(false);
-            btn_alti.setEnabled(false);
-            btn_3x.setEnabled(false);
-            btn_4x.setEnabled(false);
-            btn_home.setEnabled(false);
-            btn_small.setEnabled(false);
-            btn_large.setEnabled(false);
-            btn_yahtzee.setEnabled(false);
-            btn_soru.setEnabled(false);
+            gecici = buttons.indexOf(btn_iki);
         }
     }//GEN-LAST:event_btn_ikiActionPerformed
 
@@ -856,19 +866,13 @@ public class Yahtzee extends javax.swing.JFrame {
             }
         }
         if (toplam > 0) {
+            for (int i = 0; i < buttons.size(); i++) {
+                if (buttons.get(i).isEnabled()) {
+                    buttons.get(i).setText("");
+                }
+            }
             btn_uc.setText(Integer.toString(toplam));
-            btn_iki.setEnabled(false);
-            btn_bir.setEnabled(false);
-            btn_dort.setEnabled(false);
-            btn_bes.setEnabled(false);
-            btn_alti.setEnabled(false);
-            btn_3x.setEnabled(false);
-            btn_4x.setEnabled(false);
-            btn_home.setEnabled(false);
-            btn_small.setEnabled(false);
-            btn_large.setEnabled(false);
-            btn_yahtzee.setEnabled(false);
-            btn_soru.setEnabled(false);
+            gecici = buttons.indexOf(btn_uc);
         }
     }//GEN-LAST:event_btn_ucActionPerformed
 
@@ -881,19 +885,13 @@ public class Yahtzee extends javax.swing.JFrame {
             }
         }
         if (toplam > 0) {
+            for (int i = 0; i < buttons.size(); i++) {
+                if (buttons.get(i).isEnabled()) {
+                    buttons.get(i).setText("");
+                }
+            }
             btn_dort.setText(Integer.toString(toplam));
-            btn_iki.setEnabled(false);
-            btn_uc.setEnabled(false);
-            btn_bir.setEnabled(false);
-            btn_bes.setEnabled(false);
-            btn_alti.setEnabled(false);
-            btn_3x.setEnabled(false);
-            btn_4x.setEnabled(false);
-            btn_home.setEnabled(false);
-            btn_small.setEnabled(false);
-            btn_large.setEnabled(false);
-            btn_yahtzee.setEnabled(false);
-            btn_soru.setEnabled(false);
+            gecici = buttons.indexOf(btn_dort);
         }
     }//GEN-LAST:event_btn_dortActionPerformed
 
@@ -906,19 +904,13 @@ public class Yahtzee extends javax.swing.JFrame {
             }
         }
         if (toplam > 0) {
+            for (int i = 0; i < buttons.size(); i++) {
+                if (buttons.get(i).isEnabled()) {
+                    buttons.get(i).setText("");
+                }
+            }
             btn_bes.setText(Integer.toString(toplam));
-            btn_iki.setEnabled(false);
-            btn_uc.setEnabled(false);
-            btn_dort.setEnabled(false);
-            btn_bir.setEnabled(false);
-            btn_alti.setEnabled(false);
-            btn_3x.setEnabled(false);
-            btn_4x.setEnabled(false);
-            btn_home.setEnabled(false);
-            btn_small.setEnabled(false);
-            btn_large.setEnabled(false);
-            btn_yahtzee.setEnabled(false);
-            btn_soru.setEnabled(false);
+            gecici = buttons.indexOf(btn_bes);
         }
     }//GEN-LAST:event_btn_besActionPerformed
 
@@ -931,19 +923,13 @@ public class Yahtzee extends javax.swing.JFrame {
             }
         }
         if (toplam > 0) {
+            for (int i = 0; i < buttons.size(); i++) {
+                if (buttons.get(i).isEnabled()) {
+                    buttons.get(i).setText("");
+                }
+            }
             btn_alti.setText(Integer.toString(toplam));
-            btn_iki.setEnabled(false);
-            btn_uc.setEnabled(false);
-            btn_dort.setEnabled(false);
-            btn_bes.setEnabled(false);
-            btn_bir.setEnabled(false);
-            btn_3x.setEnabled(false);
-            btn_4x.setEnabled(false);
-            btn_home.setEnabled(false);
-            btn_small.setEnabled(false);
-            btn_large.setEnabled(false);
-            btn_yahtzee.setEnabled(false);
-            btn_soru.setEnabled(false);
+            gecici = buttons.indexOf(btn_alti);
         }
     }//GEN-LAST:event_btn_altiActionPerformed
 
@@ -968,19 +954,13 @@ public class Yahtzee extends javax.swing.JFrame {
             }
         }
         if (sayac >= 3) {
+            for (int i = 0; i < buttons.size(); i++) {
+                if (buttons.get(i).isEnabled()) {
+                    buttons.get(i).setText("");
+                }
+            }
             btn_3x.setText(Integer.toString(toplam));
-            btn_iki.setEnabled(false);
-            btn_uc.setEnabled(false);
-            btn_dort.setEnabled(false);
-            btn_bes.setEnabled(false);
-            btn_alti.setEnabled(false);
-            btn_bir.setEnabled(false);
-            btn_4x.setEnabled(false);
-            btn_home.setEnabled(false);
-            btn_small.setEnabled(false);
-            btn_large.setEnabled(false);
-            btn_yahtzee.setEnabled(false);
-            btn_soru.setEnabled(false);
+            gecici = buttons.indexOf(btn_3x);
         }
 
     }//GEN-LAST:event_btn_3xActionPerformed
@@ -1006,19 +986,13 @@ public class Yahtzee extends javax.swing.JFrame {
             }
         }
         if (sayac >= 4) {
+            for (int i = 0; i < buttons.size(); i++) {
+                if (buttons.get(i).isEnabled()) {
+                    buttons.get(i).setText("");
+                }
+            }
             btn_4x.setText(Integer.toString(toplam));
-            btn_iki.setEnabled(false);
-            btn_uc.setEnabled(false);
-            btn_dort.setEnabled(false);
-            btn_bes.setEnabled(false);
-            btn_alti.setEnabled(false);
-            btn_3x.setEnabled(false);
-            btn_bir.setEnabled(false);
-            btn_home.setEnabled(false);
-            btn_small.setEnabled(false);
-            btn_large.setEnabled(false);
-            btn_yahtzee.setEnabled(false);
-            btn_soru.setEnabled(false);
+            gecici = buttons.indexOf(btn_4x);
         }
     }//GEN-LAST:event_btn_4xActionPerformed
 
@@ -1060,19 +1034,13 @@ public class Yahtzee extends javax.swing.JFrame {
 
         }
         if (sayac1 == 3 && sayac2 == 2) {
+            for (int i = 0; i < buttons.size(); i++) {
+                if (buttons.get(i).isEnabled()) {
+                    buttons.get(i).setText("");
+                }
+            }
             btn_home.setText("25");
-            btn_iki.setEnabled(false);
-            btn_uc.setEnabled(false);
-            btn_dort.setEnabled(false);
-            btn_bes.setEnabled(false);
-            btn_alti.setEnabled(false);
-            btn_3x.setEnabled(false);
-            btn_4x.setEnabled(false);
-            btn_bir.setEnabled(false);
-            btn_small.setEnabled(false);
-            btn_large.setEnabled(false);
-            btn_yahtzee.setEnabled(false);
-            btn_soru.setEnabled(false);
+            gecici = buttons.indexOf(btn_home);
         }
     }//GEN-LAST:event_btn_homeActionPerformed
 
@@ -1097,19 +1065,13 @@ public class Yahtzee extends javax.swing.JFrame {
             }
         }
         if (sayac >= 4) {
+            for (int i = 0; i < buttons.size(); i++) {
+                if (buttons.get(i).isEnabled()) {
+                    buttons.get(i).setText("");
+                }
+            }
             btn_small.setText("30");
-            btn_iki.setEnabled(false);
-            btn_uc.setEnabled(false);
-            btn_dort.setEnabled(false);
-            btn_bes.setEnabled(false);
-            btn_alti.setEnabled(false);
-            btn_3x.setEnabled(false);
-            btn_4x.setEnabled(false);
-            btn_home.setEnabled(false);
-            btn_bir.setEnabled(false);
-            btn_large.setEnabled(false);
-            btn_yahtzee.setEnabled(false);
-            btn_soru.setEnabled(false);
+            gecici = buttons.indexOf(btn_small);
         }
     }//GEN-LAST:event_btn_smallActionPerformed
 
@@ -1131,19 +1093,13 @@ public class Yahtzee extends javax.swing.JFrame {
             }
         }
         if (sayac >= 5) {
+            for (int i = 0; i < buttons.size(); i++) {
+                if (buttons.get(i).isEnabled()) {
+                    buttons.get(i).setText("");
+                }
+            }
             btn_large.setText("40");
-            btn_iki.setEnabled(false);
-            btn_uc.setEnabled(false);
-            btn_dort.setEnabled(false);
-            btn_bes.setEnabled(false);
-            btn_alti.setEnabled(false);
-            btn_3x.setEnabled(false);
-            btn_4x.setEnabled(false);
-            btn_home.setEnabled(false);
-            btn_small.setEnabled(false);
-            btn_bir.setEnabled(false);
-            btn_yahtzee.setEnabled(false);
-            btn_soru.setEnabled(false);
+            gecici = buttons.indexOf(btn_large);
         }
     }//GEN-LAST:event_btn_largeActionPerformed
 
@@ -1159,19 +1115,13 @@ public class Yahtzee extends javax.swing.JFrame {
 
         }
         if (sayac == 5) {
+            for (int i = 0; i < buttons.size(); i++) {
+                if (buttons.get(i).isEnabled()) {
+                    buttons.get(i).setText("");
+                }
+            }
             btn_yahtzee.setText("50");
-            btn_iki.setEnabled(false);
-            btn_uc.setEnabled(false);
-            btn_dort.setEnabled(false);
-            btn_bes.setEnabled(false);
-            btn_alti.setEnabled(false);
-            btn_3x.setEnabled(false);
-            btn_4x.setEnabled(false);
-            btn_home.setEnabled(false);
-            btn_small.setEnabled(false);
-            btn_large.setEnabled(false);
-            btn_bir.setEnabled(false);
-            btn_soru.setEnabled(false);
+            gecici = buttons.indexOf(btn_yahtzee);
         }
     }//GEN-LAST:event_btn_yahtzeeActionPerformed
 
@@ -1181,20 +1131,35 @@ public class Yahtzee extends javax.swing.JFrame {
         for (int i = 0; i < secilen.size(); i++) {
             toplam += (Integer.parseInt(secilen.get(i)) + 1);
         }
+
+        for (int i = 0; i < buttons.size(); i++) {
+            if (buttons.get(i).isEnabled()) {
+                buttons.get(i).setText("");
+            }
+        }
         btn_soru.setText(Integer.toString(toplam));
-        btn_iki.setEnabled(false);
-        btn_uc.setEnabled(false);
-        btn_dort.setEnabled(false);
-        btn_bes.setEnabled(false);
-        btn_alti.setEnabled(false);
-        btn_3x.setEnabled(false);
-        btn_4x.setEnabled(false);
-        btn_home.setEnabled(false);
-        btn_small.setEnabled(false);
-        btn_large.setEnabled(false);
-        btn_yahtzee.setEnabled(false);
-        btn_bir.setEnabled(false);
+        gecici = buttons.indexOf(btn_soru);
     }//GEN-LAST:event_btn_soruActionPerformed
+
+    private void btn_playActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_playActionPerformed
+        buttons.get(gecici).setEnabled(false);
+        try {
+            clnt.Send(buttons.get(gecici).getText());
+        } catch (IOException ex) {
+            Logger.getLogger(Yahtzee.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        sayac=0;
+        btn_roll.setEnabled(true);
+        lbl_secim1.setIcon(null);
+        lbl_secim2.setIcon(null);
+        lbl_secim3.setIcon(null);
+        lbl_secim4.setIcon(null);
+        lbl_secim5.setIcon(null);
+        for (int i = 0; i < 5; i++) {
+            
+            secilen.remove(0);
+        }
+    }//GEN-LAST:event_btn_playActionPerformed
 
     /**
      * @param args the command line arguments
