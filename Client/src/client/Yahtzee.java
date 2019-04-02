@@ -1152,12 +1152,12 @@ public class Yahtzee extends javax.swing.JFrame {
         msg.content=buttons.get(gecici).getText();
         Message msg2=new Message(Message.Message_Type.Selected);
         msg2.content=buttons.get(gecici);
-        try {
-            clnt.Send(msg);
-            clnt.Send(msg2);
-        } catch (IOException ex) {
+        //try {
+//            clnt.Send(msg);
+            //clnt.Send(msg2);
+       /* } catch (IOException ex) {
             Logger.getLogger(Yahtzee.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
         sayac=0;
         btn_roll.setEnabled(true);
         lbl_secim1.setIcon(null);
