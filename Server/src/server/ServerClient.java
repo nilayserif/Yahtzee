@@ -5,6 +5,8 @@
  */
 package server;
 
+import server.Message;
+import server.Message.Message_Type;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -73,30 +75,45 @@ public class ServerClient {
             //client bağlı olduğu sürece dönsün
             while (TheClient.soket.isConnected()) {
                 try {
+                    /*Message msg1=new Message(Message.Message_Type.None);
+                    msg1.content="Bağlandı";
+                    Server.Send(TheClient,msg1 );*/
                     //mesajı bekleyen kod satırı
+                    //String s=TheClient.sInput.readObject().toString();
+                    //Server.Display(s);
                     Message received = (Message) (TheClient.sInput.readObject());
+                    sOutput.flush();
+                    //Server.Display((String) received.content);
                     //mesaj gelirse bu satıra geçer
                     //mesaj tipine göre işlemlere ayır
-                    /*switch (received.type) {
+                   switch (received.type) {
                         case Name:
+                            
                             TheClient.name = received.content.toString();
                             // isim verisini gönderdikten sonra eşleştirme işlemine başla
+                            Server.Display(TheClient.name);
                             TheClient.pairThread.start();
                             break;
+                        case None:
+                            break;
                         case Disconnect:
-                            break;
-                        case Text:
                             //gelen metni direkt rakibe gönder
-                            Server.Send(TheClient.rival, received);
-                            break;
-                        case Selected:
+                           // Server.Send(TheClient.rival, received);
+                        break;
+                        case RivalConnected:
                             //gelen seçim yapıldı mesajını rakibe gönder
-                            Server.Send(TheClient.rival, received);
+                           // Server.Send(TheClient.rival, received);
+                         break;
+                        case Point:
+                        break;
+                        case Selected:
                             break;
-                        case Bitis:
+                        case Finish:
+                            break;
+                        case Start:
                             break;
 
-                    }*/
+                   }
 
                 } catch (IOException ex) {
                     Logger.getLogger(ServerClient.class.getName()).log(Level.SEVERE, null, ex);

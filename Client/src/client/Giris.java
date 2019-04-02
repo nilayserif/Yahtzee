@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package client;
-
+import client.Message;
+import client.Message.Message_Type;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -80,16 +81,15 @@ public class Giris extends javax.swing.JFrame {
         // TODO add your handling code here:
         Client.Name=txt_name.getText();
         Message msg=new Message(Message.Message_Type.Name);
-        msg.content=Client.Name;
+        msg.content=txt_name.getText();;
         try {
             Client.Start("127.0.0.1", 4000);
             Client.Send(msg);
+            Client.Out.flush();
         } catch (IOException ex) {
             Logger.getLogger(Giris.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if(Client.Socket.isConnected()){
-            Yahtzee.getWindows();
-        }
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
