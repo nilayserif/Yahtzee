@@ -20,15 +20,15 @@ public class Client {
     public static Socket Socket;
     public static ObjectOutputStream Out;
     public static ObjectInputStream In;
-
+    public static String Name;
     //public static Listen listen;
-    public void Start(String ip, int port) throws IOException {
+    public static void Start(String ip, int port) throws IOException {
         Client.Socket = new Socket(ip, port);
         Client.Out = new ObjectOutputStream(Client.Socket.getOutputStream());
         Client.In = new ObjectInputStream(Client.Socket.getInputStream());
     }
 
-    public void Stop() throws IOException {
+    public static void Stop() throws IOException {
         if (Client.Socket != null) {
             //Client.listen.stop();
             Client.Socket.close();
@@ -37,7 +37,7 @@ public class Client {
 
         }
     }
-    public void Send(Object msg) throws IOException{
+    public static void Send(Object msg) throws IOException{
         Client.Out.writeObject(msg);
     }
 }

@@ -1143,8 +1143,13 @@ public class Yahtzee extends javax.swing.JFrame {
 
     private void btn_playActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_playActionPerformed
         buttons.get(gecici).setEnabled(false);
+        Message msg=new Message(Message.Message_Type.point);
+        msg.content=buttons.get(gecici).getText();
+        Message msg2=new Message(Message.Message_Type.Selected);
+        msg2.content=buttons.get(gecici);
         try {
-            clnt.Send(buttons.get(gecici).getText());
+            clnt.Send(msg);
+            clnt.Send(msg2);
         } catch (IOException ex) {
             Logger.getLogger(Yahtzee.class.getName()).log(Level.SEVERE, null, ex);
         }
