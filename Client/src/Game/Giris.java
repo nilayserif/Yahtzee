@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package client;
-import client.Message;
-import client.Message.Message_Type;
+package Game;
+import client.Client;
+import Game.Message;
+import Game.Message.Message_Type;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,8 +20,10 @@ public class Giris extends javax.swing.JFrame {
     /**
      * Creates new form Giris
      */
+    public static Giris thisGame;
     public Giris() {
         initComponents();
+        
     }
 
     /**
@@ -37,7 +40,7 @@ public class Giris extends javax.swing.JFrame {
         txt_name = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(107, 0, 0));
 
         jPanel1.setBackground(new java.awt.Color(107, 0, 0));
@@ -100,17 +103,19 @@ public class Giris extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Client.Name=txt_name.getText();
-        Message msg=new Message(Message.Message_Type.Name);
-        msg.content=txt_name.getText();;
-        try {
-            Client.Start("127.0.0.1", 4000);
-            Client.Send(msg);
-            Client.Out.flush();
-        } catch (IOException ex) {
-            Logger.getLogger(Giris.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        String name=" ";
+        name=txt_name.getText();
         
+        System.out.println(name);
+        Client.Start("127.0.0.1", 4000);
+        
+        Message msg = new Message(Message.Message_Type.Name);
+        msg.content =name;
+        Client.Send(msg);
+        Yahtzee y=new Yahtzee();
+        
+        y.setVisible(true);
+        this.dispose();
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -153,6 +158,6 @@ public class Giris extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_name;
-    private javax.swing.JTextField txt_name;
+    public javax.swing.JTextField txt_name;
     // End of variables declaration//GEN-END:variables
 }

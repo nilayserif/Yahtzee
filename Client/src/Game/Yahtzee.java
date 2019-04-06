@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package client;
+package Game;
 
+import client.Client;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -18,6 +19,7 @@ import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,6 +30,9 @@ public class Yahtzee extends javax.swing.JFrame {
     /**
      * Creates new form Yahtzee
      */
+    public static Yahtzee thisGame;
+    public String Name = "asa";
+    public int hamle = 0;
     public static ArrayList<ImageIcon> icons;
     static int sayac;
     Random rnd = new Random();
@@ -35,8 +40,13 @@ public class Yahtzee extends javax.swing.JFrame {
     ArrayList<String> secilen = new ArrayList<String>();
     ArrayList<JButton> buttons;
     int gecici;
-    Client clnt=new Client();
+    Client clnt = new Client();
+    public Thread tmr_slider;
+    public int OyunToplam = 0;
+    public int rivalToplam = 0;
+
     public Yahtzee() {
+        //lbl_name.setText(Name);
         sayac = 0;
         icons = new ArrayList<ImageIcon>();
         ImageIcon icn1 = new ImageIcon("C:\\Users\\Asus\\Desktop\\Yahtzee\\Client\\src\\client\\images\\bir.jpg");
@@ -52,6 +62,7 @@ public class Yahtzee extends javax.swing.JFrame {
         icons.add(icn5);
         icons.add(icn6);
         initComponents();
+        thisGame = this;
         buttons = new ArrayList<JButton>();
         buttons.add(btn_bir);
         buttons.add(btn_iki);
@@ -66,20 +77,59 @@ public class Yahtzee extends javax.swing.JFrame {
         buttons.add(btn_large);
         buttons.add(btn_yahtzee);
         buttons.add(btn_soru);
+        buttons.get(0).setName("bir");
+        buttons.get(1).setName("iki");
+        buttons.get(2).setName("uc");
+        buttons.get(3).setName("dort");
+        buttons.get(4).setName("bes");
+        buttons.get(5).setName("alti");
+        buttons.get(6).setName("3x");
+        buttons.get(7).setName("4x");
+        buttons.get(8).setName("home");
+        buttons.get(9).setName("small");
+        buttons.get(10).setName("large");
+        buttons.get(11).setName("yahtzee");
+        buttons.get(12).setName("soru");
+        btn_roll.setEnabled(false);
+        btn_play.setEnabled(false);
+        tmr_slider = new Thread(() -> {
+            //soket bağlıysa dönsün
+            while (Client.socket.isConnected()) {
+
+                try {
+                    //
+                    Thread.sleep(100);
+                    //eğer ikisinden biri -1 ise resim dönmeye devam etsin sonucu göstermesin
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Yahtzee.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                tmr_slider.stop();
+
+                //Reset();
+            }
+
+        });
+
     }
     Runnable r = new Runnable() {
         @Override
         public void run() {
+            lbl_zar1.setEnabled(true);
+            lbl_zar2.setEnabled(true);
+            lbl_zar3.setEnabled(true);
+            lbl_zar4.setEnabled(true);
+            lbl_zar5.setEnabled(true);
             for (int i = 0; i < 10; i++) {
-                k = rnd.nextInt(5);
+                k = rnd.nextInt(6);
                 lbl_zar1.setIcon(icons.get(k));
-                k = rnd.nextInt(5);
+                k = rnd.nextInt(6);
                 lbl_zar2.setIcon(icons.get(k));
-                k = rnd.nextInt(5);
+                k = rnd.nextInt(6);
                 lbl_zar3.setIcon(icons.get(k));
-                k = rnd.nextInt(5);
+                k = rnd.nextInt(6);
                 lbl_zar4.setIcon(icons.get(k));
-                k = rnd.nextInt(5);
+                k = rnd.nextInt(6);
                 lbl_zar5.setIcon(icons.get(k));
                 if (sayac >= 3) {
                     btn_roll.setEnabled(false);
@@ -137,19 +187,19 @@ public class Yahtzee extends javax.swing.JFrame {
         btn_large = new javax.swing.JButton();
         btn_yahtzee = new javax.swing.JButton();
         btn_soru = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
+        lbl_rivalbir = new javax.swing.JLabel();
+        lbl_rivaliki = new javax.swing.JLabel();
+        lbl_rivaluc = new javax.swing.JLabel();
+        lbl_rivaldort = new javax.swing.JLabel();
+        lbl_rivalbes = new javax.swing.JLabel();
+        lbl_rivalalti = new javax.swing.JLabel();
+        lbl_rival3x = new javax.swing.JLabel();
+        lbl_rival4x = new javax.swing.JLabel();
+        lbl_rivalhm = new javax.swing.JLabel();
+        lbl_rivalsmall = new javax.swing.JLabel();
+        lbl_rivallarge = new javax.swing.JLabel();
+        lbl_rivalyahtzee = new javax.swing.JLabel();
+        lbl_rivalsoru = new javax.swing.JLabel();
         lbl_zar1 = new javax.swing.JLabel();
         lbl_zar2 = new javax.swing.JLabel();
         lbl_zar3 = new javax.swing.JLabel();
@@ -157,20 +207,20 @@ public class Yahtzee extends javax.swing.JFrame {
         lbl_zar5 = new javax.swing.JLabel();
         btn_roll = new javax.swing.JButton();
         btn_play = new javax.swing.JButton();
-        jLabel32 = new javax.swing.JLabel();
         lbl_secim1 = new javax.swing.JLabel();
         lbl_secim2 = new javax.swing.JLabel();
         lbl_secim3 = new javax.swing.JLabel();
         lbl_secim4 = new javax.swing.JLabel();
         lbl_secim5 = new javax.swing.JLabel();
+        lbl_name = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("YAHTZEE");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setModalExclusionType(java.awt.Dialog.ModalExclusionType.TOOLKIT_EXCLUDE);
-        setType(java.awt.Window.Type.UTILITY);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         jPanel1.setFont(new java.awt.Font("Matura MT Script Capitals", 0, 11)); // NOI18N
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/bir.jpg"))); // NOI18N
@@ -277,32 +327,6 @@ public class Yahtzee extends javax.swing.JFrame {
             }
         });
 
-        jLabel14.setText("jLabel14");
-
-        jLabel15.setText("jLabel15");
-
-        jLabel16.setText("jLabel16");
-
-        jLabel17.setText("jLabel17");
-
-        jLabel18.setText("jLabel18");
-
-        jLabel19.setText("jLabel19");
-
-        jLabel20.setText("jLabel20");
-
-        jLabel21.setText("jLabel21");
-
-        jLabel22.setText("jLabel22");
-
-        jLabel23.setText("jLabel23");
-
-        jLabel24.setText("jLabel24");
-
-        jLabel25.setText("jLabel25");
-
-        jLabel26.setText("jLabel26");
-
         lbl_zar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/altı.jpg"))); // NOI18N
         lbl_zar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -340,7 +364,7 @@ public class Yahtzee extends javax.swing.JFrame {
 
         btn_roll.setBackground(new java.awt.Color(107, 0, 0));
         btn_roll.setFont(new java.awt.Font("Matura MT Script Capitals", 0, 24)); // NOI18N
-        btn_roll.setText("roll");
+        btn_roll.setText("Zar At");
         btn_roll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_rollActionPerformed(evt);
@@ -349,47 +373,52 @@ public class Yahtzee extends javax.swing.JFrame {
 
         btn_play.setBackground(new java.awt.Color(107, 0, 0));
         btn_play.setFont(new java.awt.Font("Matura MT Script Capitals", 0, 24)); // NOI18N
-        btn_play.setText("play");
+        btn_play.setText("Seçimi Gönder");
         btn_play.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_playActionPerformed(evt);
             }
         });
 
-        jLabel32.setText("jLabel32");
-
-        lbl_secim1.setText("jLabel27");
         lbl_secim1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lbl_secim1MousePressed(evt);
             }
         });
 
-        lbl_secim2.setText("jLabel28");
         lbl_secim2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lbl_secim2MousePressed(evt);
             }
         });
 
-        lbl_secim3.setText("jLabel29");
         lbl_secim3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lbl_secim3MousePressed(evt);
             }
         });
 
-        lbl_secim4.setText("jLabel30");
         lbl_secim4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lbl_secim4MousePressed(evt);
             }
         });
 
-        lbl_secim5.setText("jLabel31");
         lbl_secim5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lbl_secim5MousePressed(evt);
+            }
+        });
+
+        lbl_name.setFont(new java.awt.Font("Matura MT Script Capitals", 0, 18)); // NOI18N
+        lbl_name.setForeground(new java.awt.Color(107, 0, 0));
+
+        jButton1.setBackground(new java.awt.Color(107, 0, 0));
+        jButton1.setFont(new java.awt.Font("Matura MT Script Capitals", 0, 24)); // NOI18N
+        jButton1.setText("Oyundan Ayrıl");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -398,9 +427,9 @@ public class Yahtzee extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel32)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(21, 1035, Short.MAX_VALUE)
+                .addComponent(lbl_name)
+                .addGap(37, 37, 37))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -433,12 +462,12 @@ public class Yahtzee extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lbl_rivalalti, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                            .addComponent(lbl_rivalbes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_rivaldort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_rivaluc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_rivaliki, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_rivalbir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(114, 114, 114)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -472,13 +501,13 @@ public class Yahtzee extends javax.swing.JFrame {
                         .addComponent(btn_soru, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbl_rivalsoru, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                    .addComponent(lbl_rival3x, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_rival4x, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_rivalsmall, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_rivallarge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_rivalyahtzee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_rivalhm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
@@ -499,9 +528,9 @@ public class Yahtzee extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(27, 27, 27))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
                                 .addComponent(lbl_secim1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lbl_secim2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -511,33 +540,33 @@ public class Yahtzee extends javax.swing.JFrame {
                                 .addComponent(lbl_secim4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lbl_secim5, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(55, 55, 55)
-                                .addComponent(btn_play, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_play, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel32)
+                .addComponent(lbl_name)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_rival3x, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_3x, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(btn_bir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)))
+                                .addComponent(lbl_rivalbir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)
                             .addComponent(btn_4x, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_rival4x, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_rivaliki, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_iki, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(37, 37, 37)
@@ -551,8 +580,8 @@ public class Yahtzee extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(lbl_zar4, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
-                        .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lbl_rivalhm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lbl_rivaluc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_uc, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -560,45 +589,46 @@ public class Yahtzee extends javax.swing.JFrame {
                     .addComponent(lbl_zar5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_roll, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                    .addComponent(btn_roll, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_rivaldort, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel10)
                     .addComponent(btn_dort, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_small, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_rivalsmall, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_small, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbl_secim4, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
                     .addComponent(lbl_secim3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbl_secim2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbl_secim1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_rivallarge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_rivalbes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbl_secim5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_bes, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_large, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_play, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btn_play, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel25)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                            .addComponent(lbl_rivalalti, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_alti, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_yahtzee, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_yahtzee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_rivalyahtzee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btn_soru, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_rivalsoru, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING))))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -625,135 +655,148 @@ public class Yahtzee extends javax.swing.JFrame {
 
 
     private void lbl_zar1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_zar1MousePressed
+
         ImageIcon icon = new ImageIcon();
         icon = (ImageIcon) lbl_zar1.getIcon();
-
-        for (int i = 0; i < 6; i++) {
-            if (icon.toString().equals(icons.get(i).toString())) {
-                if (secilen.size() < 5) {
-                    secilen.add(Integer.toString(i));
-                    if (lbl_secim1.getIcon() == null) {
-                        lbl_secim1.setIcon(icon);
-                    } else if (lbl_secim2.getIcon() == null) {
-                        lbl_secim2.setIcon(icon);
-                    } else if (lbl_secim3.getIcon() == null) {
-                        lbl_secim3.setIcon(icon);
-                    } else if (lbl_secim4.getIcon() == null) {
-                        lbl_secim4.setIcon(icon);
-                    } else if (lbl_secim5.getIcon() == null) {
-                        lbl_secim5.setIcon(icon);
+        if (lbl_zar1.isEnabled()) {
+            for (int i = 0; i < 6; i++) {
+                if (icon.toString().equals(icons.get(i).toString())) {
+                    if (secilen.size() < 5) {
+                        secilen.add(Integer.toString(i));
+                        if (lbl_secim1.getIcon() == null) {
+                            lbl_secim1.setIcon(icon);
+                        } else if (lbl_secim2.getIcon() == null) {
+                            lbl_secim2.setIcon(icon);
+                        } else if (lbl_secim3.getIcon() == null) {
+                            lbl_secim3.setIcon(icon);
+                        } else if (lbl_secim4.getIcon() == null) {
+                            lbl_secim4.setIcon(icon);
+                        } else if (lbl_secim5.getIcon() == null) {
+                            lbl_secim5.setIcon(icon);
+                        }
+                    } else {
+                        System.out.println("sayı fazla");
                     }
-                } else {
-                    System.out.println("sayı fazla");
                 }
             }
         }
-
+        lbl_zar1.setEnabled(false);
 
     }//GEN-LAST:event_lbl_zar1MousePressed
 
     private void lbl_zar2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_zar2MousePressed
         ImageIcon icon = new ImageIcon();
         icon = (ImageIcon) lbl_zar2.getIcon();
-
-        for (int i = 0; i < 6; i++) {
-            if (icon.toString().equals(icons.get(i).toString())) {
-                if (secilen.size() < 5) {
-                    secilen.add(Integer.toString(i));
-                    if (lbl_secim1.getIcon() == null) {
-                        lbl_secim1.setIcon(icon);
-                    } else if (lbl_secim2.getIcon() == null) {
-                        lbl_secim2.setIcon(icon);
-                    } else if (lbl_secim3.getIcon() == null) {
-                        lbl_secim3.setIcon(icon);
-                    } else if (lbl_secim4.getIcon() == null) {
-                        lbl_secim4.setIcon(icon);
-                    } else if (lbl_secim5.getIcon() == null) {
-                        lbl_secim5.setIcon(icon);
+        if (lbl_zar2.isEnabled()) {
+            for (int i = 0; i < 6; i++) {
+                if (icon.toString().equals(icons.get(i).toString())) {
+                    if (secilen.size() < 5) {
+                        secilen.add(Integer.toString(i));
+                        if (lbl_secim1.getIcon() == null) {
+                            lbl_secim1.setIcon(icon);
+                        } else if (lbl_secim2.getIcon() == null) {
+                            lbl_secim2.setIcon(icon);
+                        } else if (lbl_secim3.getIcon() == null) {
+                            lbl_secim3.setIcon(icon);
+                        } else if (lbl_secim4.getIcon() == null) {
+                            lbl_secim4.setIcon(icon);
+                        } else if (lbl_secim5.getIcon() == null) {
+                            lbl_secim5.setIcon(icon);
+                        }
+                    } else {
+                        System.out.println("sayı fazla");
                     }
-                } else {
-                    System.out.println("sayı fazla");
                 }
             }
         }
+        lbl_zar2.setEnabled(false);
 
     }//GEN-LAST:event_lbl_zar2MousePressed
 
     private void lbl_zar3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_zar3MousePressed
         ImageIcon icon = new ImageIcon();
         icon = (ImageIcon) lbl_zar3.getIcon();
-        for (int i = 0; i < 6; i++) {
-            if (icon.toString().equals(icons.get(i).toString())) {
-                if (secilen.size() < 5) {
-                    secilen.add(Integer.toString(i));
-                    if (lbl_secim1.getIcon() == null) {
-                        lbl_secim1.setIcon(icon);
-                    } else if (lbl_secim2.getIcon() == null) {
-                        lbl_secim2.setIcon(icon);
-                    } else if (lbl_secim3.getIcon() == null) {
-                        lbl_secim3.setIcon(icon);
-                    } else if (lbl_secim4.getIcon() == null) {
-                        lbl_secim4.setIcon(icon);
-                    } else if (lbl_secim5.getIcon() == null) {
-                        lbl_secim5.setIcon(icon);
+        if (lbl_zar3.isEnabled()) {
+            for (int i = 0; i < 6; i++) {
+                if (icon.toString().equals(icons.get(i).toString())) {
+                    if (secilen.size() < 5) {
+                        secilen.add(Integer.toString(i));
+                        if (lbl_secim1.getIcon() == null) {
+                            lbl_secim1.setIcon(icon);
+                        } else if (lbl_secim2.getIcon() == null) {
+                            lbl_secim2.setIcon(icon);
+                        } else if (lbl_secim3.getIcon() == null) {
+                            lbl_secim3.setIcon(icon);
+                        } else if (lbl_secim4.getIcon() == null) {
+                            lbl_secim4.setIcon(icon);
+                        } else if (lbl_secim5.getIcon() == null) {
+                            lbl_secim5.setIcon(icon);
+                        }
+                    } else {
+                        System.out.println("sayı fazla");
                     }
-                } else {
-                    System.out.println("sayı fazla");
                 }
             }
         }
+        lbl_zar3.setEnabled(false);
 
     }//GEN-LAST:event_lbl_zar3MousePressed
 
     private void lbl_zar4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_zar4MousePressed
         ImageIcon icon = new ImageIcon();
         icon = (ImageIcon) lbl_zar4.getIcon();
-        for (int i = 0; i < 6; i++) {
-            if (icon.toString().equals(icons.get(i).toString())) {
-                if (secilen.size() < 5) {
-                    secilen.add(Integer.toString(i));
-                    if (lbl_secim1.getIcon() == null) {
-                        lbl_secim1.setIcon(icon);
-                    } else if (lbl_secim2.getIcon() == null) {
-                        lbl_secim2.setIcon(icon);
-                    } else if (lbl_secim3.getIcon() == null) {
-                        lbl_secim3.setIcon(icon);
-                    } else if (lbl_secim4.getIcon() == null) {
-                        lbl_secim4.setIcon(icon);
-                    } else if (lbl_secim5.getIcon() == null) {
-                        lbl_secim5.setIcon(icon);
+        if (lbl_zar4.isEnabled()) {
+            for (int i = 0; i < 6; i++) {
+                if (icon.toString().equals(icons.get(i).toString())) {
+                    if (secilen.size() < 5) {
+                        secilen.add(Integer.toString(i));
+                        if (lbl_secim1.getIcon() == null) {
+                            lbl_secim1.setIcon(icon);
+                        } else if (lbl_secim2.getIcon() == null) {
+                            lbl_secim2.setIcon(icon);
+                        } else if (lbl_secim3.getIcon() == null) {
+                            lbl_secim3.setIcon(icon);
+                        } else if (lbl_secim4.getIcon() == null) {
+                            lbl_secim4.setIcon(icon);
+                        } else if (lbl_secim5.getIcon() == null) {
+                            lbl_secim5.setIcon(icon);
+                        }
+                    } else {
+                        System.out.println("sayı fazla");
                     }
-                } else {
-                    System.out.println("sayı fazla");
                 }
             }
         }
+        lbl_zar4.setEnabled(false);
 
     }//GEN-LAST:event_lbl_zar4MousePressed
 
     private void lbl_zar5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_zar5MousePressed
         ImageIcon icon = new ImageIcon();
         icon = (ImageIcon) lbl_zar5.getIcon();
-        for (int i = 0; i < 6; i++) {
-            if (icon.toString().equals(icons.get(i).toString())) {
-                if (secilen.size() < 5) {
-                    secilen.add(Integer.toString(i));
-                    if (lbl_secim1.getIcon() == null) {
-                        lbl_secim1.setIcon(icon);
-                    } else if (lbl_secim2.getIcon() == null) {
-                        lbl_secim2.setIcon(icon);
-                    } else if (lbl_secim3.getIcon() == null) {
-                        lbl_secim3.setIcon(icon);
-                    } else if (lbl_secim4.getIcon() == null) {
-                        lbl_secim4.setIcon(icon);
-                    } else if (lbl_secim5.getIcon() == null) {
-                        lbl_secim5.setIcon(icon);
+        if (lbl_zar5.isEnabled()) {
+            for (int i = 0; i < 6; i++) {
+                if (icon.toString().equals(icons.get(i).toString())) {
+                    if (secilen.size() < 5) {
+                        secilen.add(Integer.toString(i));
+                        if (lbl_secim1.getIcon() == null) {
+                            lbl_secim1.setIcon(icon);
+                        } else if (lbl_secim2.getIcon() == null) {
+                            lbl_secim2.setIcon(icon);
+                        } else if (lbl_secim3.getIcon() == null) {
+                            lbl_secim3.setIcon(icon);
+                        } else if (lbl_secim4.getIcon() == null) {
+                            lbl_secim4.setIcon(icon);
+                        } else if (lbl_secim5.getIcon() == null) {
+                            lbl_secim5.setIcon(icon);
+                        }
+                    } else {
+                        System.out.println("sayı fazla");
                     }
-                } else {
-                    System.out.println("sayı fazla");
                 }
             }
         }
+        lbl_zar5.setEnabled(false);
 
     }//GEN-LAST:event_lbl_zar5MousePressed
 
@@ -1090,14 +1133,8 @@ public class Yahtzee extends javax.swing.JFrame {
 
             }
 
-            if (sayac == 5) {
-                sayac = 0;
-
-            } else {
-                break;
-            }
         }
-        if (sayac >= 5) {
+        if (sayac == 5) {
             for (int i = 0; i < buttons.size(); i++) {
                 if (buttons.get(i).isEnabled()) {
                     buttons.get(i).setText("");
@@ -1147,18 +1184,15 @@ public class Yahtzee extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_soruActionPerformed
 
     private void btn_playActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_playActionPerformed
+        hamle++;
         buttons.get(gecici).setEnabled(false);
-        Message msg=new Message(Message.Message_Type.point);
-        msg.content=buttons.get(gecici).getText();
-        Message msg2=new Message(Message.Message_Type.Selected);
-        msg2.content=buttons.get(gecici);
-        //try {
-//            clnt.Send(msg);
-            //clnt.Send(msg2);
-       /* } catch (IOException ex) {
-            Logger.getLogger(Yahtzee.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        sayac=0;
+        String[] dizi = new String[2];
+        Message msg = new Message(Message.Message_Type.point);
+        dizi[0] = buttons.get(gecici).getText();
+        dizi[1] = buttons.get(gecici).getName();
+        msg.content = dizi;
+        clnt.Send(msg);
+        sayac = 0;
         btn_roll.setEnabled(true);
         lbl_secim1.setIcon(null);
         lbl_secim2.setIcon(null);
@@ -1166,10 +1200,49 @@ public class Yahtzee extends javax.swing.JFrame {
         lbl_secim4.setIcon(null);
         lbl_secim5.setIcon(null);
         for (int i = 0; i < 5; i++) {
-            
+
             secilen.remove(0);
         }
+        if (hamle == 13) {
+
+            OyunToplam = Integer.parseInt(btn_bir.getText()) + Integer.parseInt(btn_iki.getText()) + Integer.parseInt(btn_uc.getText()) + Integer.parseInt(btn_yahtzee.getText()) + Integer.parseInt(btn_soru.getText())
+                    + Integer.parseInt(btn_dort.getText()) + Integer.parseInt(btn_bes.getText()) + Integer.parseInt(btn_alti.getText()) + Integer.parseInt(btn_3x.getText()) + Integer.parseInt(btn_4x.getText())
+                    + Integer.parseInt(btn_home.getText()) + Integer.parseInt(btn_small.getText()) + Integer.parseInt(btn_large.getText());
+            System.out.println(OyunToplam);
+            Message msg1 = new Message(Message.Message_Type.finish);
+            msg1.content = OyunToplam;
+            Client.Send(msg1);
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Yahtzee.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if (Yahtzee.thisGame.OyunToplam > rivalToplam) {
+                JOptionPane.showMessageDialog(null, "Oyunu " + Yahtzee.thisGame.OyunToplam + " puanla" + " kazandız.");
+            } else if (Yahtzee.thisGame.OyunToplam < rivalToplam) {
+                JOptionPane.showMessageDialog(null, "Oyunu " + Yahtzee.thisGame.OyunToplam + " puanla " + lbl_name.getText() + " kazandı.");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Oyun berabere bitti ");
+
+            }
+            Client.Stop();
+            Giris g=new Giris();
+            g.setVisible(true);
+            thisGame.setVisible(false);
+        }
+
     }//GEN-LAST:event_btn_playActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Message msg=new Message(Message.Message_Type.Disconnect);
+        msg.content="0";
+        Client.Send(msg);
+        Client.Stop();
+        Giris g=new Giris();
+        g.setVisible(true);
+        thisGame.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1212,38 +1285,25 @@ public class Yahtzee extends javax.swing.JFrame {
     private javax.swing.JButton btn_4x;
     private javax.swing.JButton btn_alti;
     private javax.swing.JButton btn_bes;
-    private javax.swing.JButton btn_bir;
+    public static javax.swing.JButton btn_bir;
     private javax.swing.JButton btn_dort;
     private javax.swing.JButton btn_home;
     private javax.swing.JButton btn_iki;
     private javax.swing.JButton btn_large;
-    private javax.swing.JButton btn_play;
-    public static javax.swing.JButton btn_roll;
+    public javax.swing.JButton btn_play;
+    public javax.swing.JButton btn_roll;
     private javax.swing.JButton btn_small;
     private javax.swing.JButton btn_soru;
     private javax.swing.JButton btn_uc;
     private javax.swing.JButton btn_yahtzee;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1251,6 +1311,20 @@ public class Yahtzee extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JLabel lbl_name;
+    public javax.swing.JLabel lbl_rival3x;
+    public javax.swing.JLabel lbl_rival4x;
+    public javax.swing.JLabel lbl_rivalalti;
+    public javax.swing.JLabel lbl_rivalbes;
+    public javax.swing.JLabel lbl_rivalbir;
+    public javax.swing.JLabel lbl_rivaldort;
+    public javax.swing.JLabel lbl_rivalhm;
+    public javax.swing.JLabel lbl_rivaliki;
+    public javax.swing.JLabel lbl_rivallarge;
+    public javax.swing.JLabel lbl_rivalsmall;
+    public javax.swing.JLabel lbl_rivalsoru;
+    public javax.swing.JLabel lbl_rivaluc;
+    public javax.swing.JLabel lbl_rivalyahtzee;
     private javax.swing.JLabel lbl_secim1;
     private javax.swing.JLabel lbl_secim2;
     private javax.swing.JLabel lbl_secim3;

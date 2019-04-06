@@ -3,18 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package server;
+package Game;
 
 /**
  *
  * @author Asus
  */
-public class Message implements java.io.Serializable{
-    public static enum Message_Type {None,Name, Disconnect,RivalConnected,Point, Selected, Finish,Start,}
+public class Message implements java.io.Serializable {
+
+    public static enum Message_Type {
+        Name,Disconnect, RivalConnected, point, finish, Start,selected
+    }
     public Message_Type type;
     public Object content;
-    public Message(Message_Type t)
-    {
-        this.type=t;
+
+    public Message(Message_Type t) {
+        this.type = t;
     }
 }

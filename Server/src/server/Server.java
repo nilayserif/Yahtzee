@@ -5,7 +5,9 @@
  */
 package server;
 
+import Game.Message;
 import java.io.IOException;
+
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -15,8 +17,9 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Asus
+ * @author INSECT
  */
+//client gelişini dinleme threadi
 class ServerThread extends Thread {
 
     public void run() {
@@ -35,7 +38,7 @@ class ServerThread extends Thread {
                 
                 Server.IdClient++;
                 //clienti listeye ekle.
-                Server.clientList.add(nclient);
+                Server.Clients.add(nclient);
                 //client mesaj dinlemesini başlat
                 nclient.listenThread.start();
 
@@ -57,10 +60,10 @@ public class Server {
     public static ServerThread runThread;
     //public static PairingThread pairThread;
 
-    public static ArrayList<ServerClient> clientList = new ArrayList<>();
+    public static ArrayList<ServerClient> Clients = new ArrayList<>();
 
     //semafor nesnesi
-    public static Semaphore pair = new Semaphore(1, true);
+    public static Semaphore pairTwo = new Semaphore(1, true);
 
     // başlaşmak için sadece port numarası veriyoruz
     public static void Start(int openport) {
@@ -93,6 +96,5 @@ public class Server {
         }
 
     }
-
 
 }

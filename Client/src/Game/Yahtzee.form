@@ -7,12 +7,6 @@
     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
       <Color id="Default Cursor"/>
     </Property>
-    <Property name="modalExclusionType" type="java.awt.Dialog$ModalExclusionType" editor="org.netbeans.modules.form.editors.EnumEditor">
-      <Value id="TOOLKIT_EXCLUDE"/>
-    </Property>
-    <Property name="type" type="java.awt.Window$Type" editor="org.netbeans.modules.form.editors.EnumEditor">
-      <Value id="UTILITY"/>
-    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -48,6 +42,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+        <Property name="debugGraphicsOptions" type="int" value="-1"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Matura MT Script Capitals" size="11" style="0"/>
         </Property>
@@ -56,10 +51,10 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                  <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="21" pref="1035" max="32767" attributes="0"/>
+                  <Component id="lbl_name" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
@@ -101,12 +96,12 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel19" pref="71" max="32767" attributes="0"/>
-                              <Component id="jLabel18" max="32767" attributes="0"/>
-                              <Component id="jLabel17" max="32767" attributes="0"/>
-                              <Component id="jLabel16" max="32767" attributes="0"/>
-                              <Component id="jLabel15" max="32767" attributes="0"/>
-                              <Component id="jLabel14" max="32767" attributes="0"/>
+                              <Component id="lbl_rivalalti" pref="71" max="32767" attributes="0"/>
+                              <Component id="lbl_rivalbes" max="32767" attributes="0"/>
+                              <Component id="lbl_rivaldort" max="32767" attributes="0"/>
+                              <Component id="lbl_rivaluc" max="32767" attributes="0"/>
+                              <Component id="lbl_rivaliki" max="32767" attributes="0"/>
+                              <Component id="lbl_rivalbir" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -151,13 +146,13 @@
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLabel26" pref="70" max="32767" attributes="0"/>
-                      <Component id="jLabel20" max="32767" attributes="0"/>
-                      <Component id="jLabel21" max="32767" attributes="0"/>
-                      <Component id="jLabel23" max="32767" attributes="0"/>
-                      <Component id="jLabel24" max="32767" attributes="0"/>
-                      <Component id="jLabel25" max="32767" attributes="0"/>
-                      <Component id="jLabel22" max="32767" attributes="0"/>
+                      <Component id="lbl_rivalsoru" pref="70" max="32767" attributes="0"/>
+                      <Component id="lbl_rival3x" max="32767" attributes="0"/>
+                      <Component id="lbl_rival4x" max="32767" attributes="0"/>
+                      <Component id="lbl_rivalsmall" max="32767" attributes="0"/>
+                      <Component id="lbl_rivallarge" max="32767" attributes="0"/>
+                      <Component id="lbl_rivalyahtzee" max="32767" attributes="0"/>
+                      <Component id="lbl_rivalhm" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -185,9 +180,9 @@
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
                                   <Component id="lbl_secim1" min="-2" pref="70" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="lbl_secim2" min="-2" pref="70" max="-2" attributes="0"/>
@@ -198,9 +193,9 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="lbl_secim5" min="-2" pref="68" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                                  <Component id="btn_play" min="-2" pref="257" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jButton1" max="32767" attributes="0"/>
+                                  <Component id="btn_play" pref="257" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -212,18 +207,18 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_name" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel1" min="-2" pref="79" max="-2" attributes="0"/>
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel20" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="lbl_rival3x" min="-2" pref="70" max="-2" attributes="0"/>
                               <Component id="btn_3x" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="btn_bir" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel14" alignment="0" pref="71" max="32767" attributes="0"/>
+                                  <Component id="lbl_rivalbir" alignment="0" pref="71" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -231,8 +226,8 @@
                               <Component id="jLabel2" min="-2" pref="79" max="-2" attributes="0"/>
                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                               <Component id="btn_4x" min="-2" pref="69" max="-2" attributes="0"/>
-                              <Component id="jLabel21" alignment="0" min="-2" pref="69" max="-2" attributes="0"/>
-                              <Component id="jLabel15" alignment="0" min="-2" pref="79" max="-2" attributes="0"/>
+                              <Component id="lbl_rival4x" alignment="0" min="-2" pref="69" max="-2" attributes="0"/>
+                              <Component id="lbl_rivaliki" alignment="0" min="-2" pref="79" max="-2" attributes="0"/>
                               <Component id="btn_iki" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -252,8 +247,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                           <Component id="lbl_zar4" pref="79" max="32767" attributes="0"/>
-                          <Component id="jLabel22" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel16" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lbl_rivalhm" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lbl_rivaluc" alignment="0" max="32767" attributes="0"/>
                           <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
                           <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
                           <Component id="btn_uc" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
@@ -263,15 +258,13 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel23" alignment="3" max="32767" attributes="0"/>
-                          <Component id="btn_roll" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="jLabel17" pref="79" max="32767" attributes="0"/>
+                      <Component id="btn_roll" min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="lbl_rivaldort" pref="79" max="32767" attributes="0"/>
                       <Component id="jLabel4" max="32767" attributes="0"/>
                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                       <Component id="btn_dort" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
-                      <Component id="btn_small" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
+                      <Component id="lbl_rivalsmall" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btn_small" alignment="0" pref="79" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -279,8 +272,8 @@
                       <Component id="lbl_secim3" max="32767" attributes="0"/>
                       <Component id="lbl_secim2" max="32767" attributes="0"/>
                       <Component id="lbl_secim1" max="32767" attributes="0"/>
-                      <Component id="jLabel24" max="32767" attributes="0"/>
-                      <Component id="jLabel18" max="32767" attributes="0"/>
+                      <Component id="lbl_rivallarge" max="32767" attributes="0"/>
+                      <Component id="lbl_rivalbes" max="32767" attributes="0"/>
                       <Component id="jLabel5" max="32767" attributes="0"/>
                       <Component id="jLabel11" max="32767" attributes="0"/>
                       <Component id="lbl_secim5" max="32767" attributes="0"/>
@@ -288,26 +281,30 @@
                       <Component id="btn_large" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btn_play" min="-2" pref="43" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="btn_play" min="-2" pref="43" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jButton1" min="-2" pref="51" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel19" pref="80" max="32767" attributes="0"/>
+                              <Component id="lbl_rivalalti" pref="80" max="32767" attributes="0"/>
                               <Component id="jLabel6" max="32767" attributes="0"/>
                               <Component id="btn_alti" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                               <Component id="jLabel12" alignment="0" max="32767" attributes="0"/>
                               <Component id="btn_yahtzee" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lbl_rivalyahtzee" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="btn_soru" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel26" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lbl_rivalsoru" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="87" max="32767" attributes="0"/>
+                  <EmptySpace pref="62" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -359,6 +356,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_birActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="btn_iki">
           <Events>
@@ -469,70 +469,70 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_soruActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel14">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel14"/>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="lbl_rivalbir">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel15">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel15"/>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="lbl_rivaliki">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel16">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel16"/>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="lbl_rivaluc">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel17">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel17"/>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="lbl_rivaldort">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel18">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel18"/>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="lbl_rivalbes">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel19">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel19"/>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="lbl_rivalalti">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel20">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel20"/>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="lbl_rival3x">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel21">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel21"/>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="lbl_rival4x">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel22">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel22"/>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="lbl_rivalhm">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel23">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel23"/>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="lbl_rivalsmall">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel24">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel24"/>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="lbl_rivallarge">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel25">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel25"/>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="lbl_rivalyahtzee">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel26">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel26"/>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="lbl_rivalsoru">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_zar1">
           <Properties>
@@ -592,13 +592,13 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Matura MT Script Capitals" size="24" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="roll"/>
+            <Property name="text" type="java.lang.String" value="Zar At"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_rollActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="btn_play">
@@ -609,55 +609,65 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Matura MT Script Capitals" size="24" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="play"/>
+            <Property name="text" type="java.lang.String" value="Se&#xe7;imi G&#xf6;nder"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_playActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel32">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel32"/>
-          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_secim1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel27"/>
-          </Properties>
           <Events>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_secim1MousePressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_secim2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel28"/>
-          </Properties>
           <Events>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_secim2MousePressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_secim3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel29"/>
-          </Properties>
           <Events>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_secim3MousePressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_secim4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel30"/>
-          </Properties>
           <Events>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_secim4MousePressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_secim5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel31"/>
-          </Properties>
           <Events>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_secim5MousePressed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbl_name">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Matura MT Script Capitals" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="6b" type="rgb"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="6b" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Matura MT Script Capitals" size="24" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Oyundan Ayr&#x131;l"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
