@@ -41,10 +41,6 @@ class Listen extends Thread {
                         Yahtzee.thisGame.lbl_name.setText("Rakip Oyuncu Adı: "+name);
                         Yahtzee.thisGame.btn_play.setEnabled(true);
                         Yahtzee.thisGame.btn_roll.setEnabled(true);
-                        //Yahtzee.thisGame.lbl_name.setText(name);
-                        /*Game.ThisGame.txt_rival_name.setText(name);
-                        Game.ThisGame.btn_pick.setEnabled(true);
-                        Game.ThisGame.btn_send_message.setEnabled(true);*/
                         Yahtzee.thisGame.tmr_slider.start();
                         break;
                     case Disconnect:
@@ -54,7 +50,6 @@ class Listen extends Thread {
                         Yahtzee.thisGame.setVisible(false);
                         break;
                     case point:
-                       // Game.ThisGame.txt_receive.setText(received.content.toString());
                         String []d=(String[]) received.content;
                         String secilen=d[1];
                         String puan=d[0];
@@ -126,37 +121,33 @@ class Listen extends Thread {
 
 public class Client {
 
-    //her clientın bir soketi olmalı
+    //Clientın soketi
     public static Socket socket;
-    
+    //Clientın ismi
     public static String name="";
-    //verileri almak için gerekli nesne
+    //verilerin geleceği nesne
     public static ObjectInputStream sInput;
-    //verileri göndermek için gerekli nesne
+    //verilerin gönderileceği nesne
     public static ObjectOutputStream sOutput;
-    //serverı dinleme thredi 
+    //dinleme thredi 
     public static Listen listenMe;
 
     public static void Start(String ip, int port) {
         try {
-            // Client Soket nesnesi
+            // Clientın soket nesnesi cliet oluşturulurken vericelecek olan ip ve port bilgisi ile oluşturuluyor
             Client.socket = new Socket(ip, port);
             Client.Display("Servera bağlandı");
-            // input stream
             Client.sInput = new ObjectInputStream(Client.socket.getInputStream());
-            // output stream
             Client.sOutput = new ObjectOutputStream(Client.socket.getOutputStream());
             Client.listenMe = new Listen();
             Client.listenMe.start();
-            
-            //ilk mesaj olarak isim gönderiyorum
             
         } catch (IOException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    //client durdurma fonksiyonu
+
     public static void Stop() {
         try {
             if (Client.socket != null) {
@@ -179,7 +170,7 @@ public class Client {
 
     }
 
-    //mesaj gönderme fonksiyonu
+
     public static void Send(Message msg) {
         try {
             Client.sOutput.writeObject(msg);

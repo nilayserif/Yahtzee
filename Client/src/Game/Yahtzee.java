@@ -46,15 +46,14 @@ public class Yahtzee extends javax.swing.JFrame {
     public int rivalToplam = 0;
 
     public Yahtzee() {
-        //lbl_name.setText(Name);
         sayac = 0;
         icons = new ArrayList<ImageIcon>();
-        ImageIcon icn1 = new ImageIcon("C:\\Users\\Asus\\Desktop\\Yahtzee\\Client\\src\\client\\images\\bir.jpg");
-        ImageIcon icn2 = new ImageIcon("C:\\Users\\Asus\\Desktop\\Yahtzee\\Client\\src\\client\\images\\iki.jpg");
-        ImageIcon icn3 = new ImageIcon("C:\\Users\\Asus\\Desktop\\Yahtzee\\Client\\src\\client\\images\\uç.jpg");
-        ImageIcon icn4 = new ImageIcon("C:\\Users\\Asus\\Desktop\\Yahtzee\\Client\\src\\client\\images\\dort.jpg");
-        ImageIcon icn5 = new ImageIcon("C:\\Users\\Asus\\Desktop\\Yahtzee\\Client\\src\\client\\images\\bes.jpg");
-        ImageIcon icn6 = new ImageIcon("C:\\Users\\Asus\\Desktop\\Yahtzee\\Client\\src\\client\\images\\altı.jpg");
+        ImageIcon icn1 = new ImageIcon("\\images\\bir.jpg");
+        ImageIcon icn2 = new ImageIcon("\\images\\iki.jpg");
+        ImageIcon icn3 = new ImageIcon("\\images\\uç.jpg");
+        ImageIcon icn4 = new ImageIcon("\\images\\dort.jpg");
+        ImageIcon icn5 = new ImageIcon("\\images\\bes.jpg");
+        ImageIcon icn6 = new ImageIcon("\\images\\altı.jpg");
         icons.add(icn1);
         icons.add(icn2);
         icons.add(icn3);
@@ -97,16 +96,14 @@ public class Yahtzee extends javax.swing.JFrame {
             while (Client.socket.isConnected()) {
 
                 try {
-                    //
+                    
                     Thread.sleep(100);
-                    //eğer ikisinden biri -1 ise resim dönmeye devam etsin sonucu göstermesin
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Yahtzee.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
                 tmr_slider.stop();
 
-                //Reset();
             }
 
         });

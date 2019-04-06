@@ -107,6 +107,7 @@ public class Giris extends javax.swing.JFrame {
         name=txt_name.getText();
         
         System.out.println(name);
+        //Server ile bağlantı kuruluyor.
         Client.Start("127.0.0.1", 4000);
         
         Message msg = new Message(Message.Message_Type.Name);
