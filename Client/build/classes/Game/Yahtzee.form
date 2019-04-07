@@ -313,42 +313,42 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/client/images/bir.jpg"/>
+              <Image iconType="3" name="/IMG/bir.jpg"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/client/images/iki.jpg"/>
+              <Image iconType="3" name="/IMG/iki.jpg"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/client/images/u&#xe7;.jpg"/>
+              <Image iconType="3" name="/IMG/u&#xe7;.jpg"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/client/images/dort.jpg"/>
+              <Image iconType="3" name="/IMG/dort.jpg"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/client/images/bes.jpg"/>
+              <Image iconType="3" name="/IMG/bes.jpg"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/client/images/alt&#x131;.jpg"/>
+              <Image iconType="3" name="/IMG/alt&#x131;.jpg"/>
             </Property>
           </Properties>
         </Component>
@@ -388,49 +388,49 @@
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/client/images/3x.jpg"/>
+              <Image iconType="3" name="/IMG/3x.jpg"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/client/images/4x.jpg"/>
+              <Image iconType="3" name="/IMG/4x.jpg"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/client/images/hm.jpg"/>
+              <Image iconType="3" name="/IMG/hm.jpg"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/client/images/small.jpg"/>
+              <Image iconType="3" name="/IMG/small.jpg"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/client/images/large.jpg"/>
+              <Image iconType="3" name="/IMG/large.jpg"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/client/images/yahtzee.jpg"/>
+              <Image iconType="3" name="/IMG/yahtzee.jpg"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/client/images/soruisareti.jpg"/>
+              <Image iconType="3" name="/IMG/soruisareti.jpg"/>
             </Property>
           </Properties>
         </Component>
@@ -537,7 +537,7 @@
         <Component class="javax.swing.JLabel" name="lbl_zar1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/client/images/alt&#x131;.jpg"/>
+              <Image iconType="3" name="/IMG/alt&#x131;.jpg"/>
             </Property>
           </Properties>
           <Events>
@@ -547,7 +547,7 @@
         <Component class="javax.swing.JLabel" name="lbl_zar2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/client/images/dort.jpg"/>
+              <Image iconType="3" name="/IMG/dort.jpg"/>
             </Property>
           </Properties>
           <Events>
@@ -557,7 +557,7 @@
         <Component class="javax.swing.JLabel" name="lbl_zar3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/client/images/bir.jpg"/>
+              <Image iconType="3" name="/IMG/bir.jpg"/>
             </Property>
           </Properties>
           <Events>
@@ -567,7 +567,7 @@
         <Component class="javax.swing.JLabel" name="lbl_zar4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/client/images/bes.jpg"/>
+              <Image iconType="3" name="/IMG/bes.jpg"/>
             </Property>
           </Properties>
           <Events>
@@ -577,7 +577,7 @@
         <Component class="javax.swing.JLabel" name="lbl_zar5">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/client/images/iki.jpg"/>
+              <Image iconType="3" name="/IMG/iki.jpg"/>
             </Property>
           </Properties>
           <Events>

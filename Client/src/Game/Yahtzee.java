@@ -48,18 +48,20 @@ public class Yahtzee extends javax.swing.JFrame {
     public Yahtzee() {
         sayac = 0;
         icons = new ArrayList<ImageIcon>();
-        ImageIcon icn1 = new ImageIcon("\\images\\bir.jpg");
-        ImageIcon icn2 = new ImageIcon("\\images\\iki.jpg");
-        ImageIcon icn3 = new ImageIcon("\\images\\uç.jpg");
-        ImageIcon icn4 = new ImageIcon("\\images\\dort.jpg");
-        ImageIcon icn5 = new ImageIcon("\\images\\bes.jpg");
-        ImageIcon icn6 = new ImageIcon("\\images\\altı.jpg");
-        icons.add(icn1);
-        icons.add(icn2);
-        icons.add(icn3);
-        icons.add(icn4);
-        icons.add(icn5);
-        icons.add(icn6);
+
+            ImageIcon icn1 = new ImageIcon(getClass().getResource("/IMG/bir.jpg"));
+            ImageIcon icn2 = new ImageIcon(getClass().getResource("/IMG/iki.jpg"));
+            ImageIcon icn3 = new ImageIcon(getClass().getResource("/IMG/uç.jpg"));
+            ImageIcon icn4 = new ImageIcon(getClass().getResource("/IMG/dort.jpg"));
+            ImageIcon icn5 = new ImageIcon(getClass().getResource("/IMG/bes.jpg"));
+            ImageIcon icn6 = new ImageIcon(getClass().getResource("/IMG/altı.jpg"));
+            icons.add(icn1);
+            icons.add(icn2);
+            icons.add(icn3);
+            icons.add(icn4);
+            icons.add(icn5);
+            icons.add(icn6);
+        
         initComponents();
         thisGame = this;
         buttons = new ArrayList<JButton>();
@@ -96,7 +98,7 @@ public class Yahtzee extends javax.swing.JFrame {
             while (Client.socket.isConnected()) {
 
                 try {
-                    
+
                     Thread.sleep(100);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Yahtzee.class.getName()).log(Level.SEVERE, null, ex);
@@ -220,17 +222,17 @@ public class Yahtzee extends javax.swing.JFrame {
         jPanel1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         jPanel1.setFont(new java.awt.Font("Matura MT Script Capitals", 0, 11)); // NOI18N
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/bir.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/bir.jpg"))); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/iki.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iki.jpg"))); // NOI18N
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/uç.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/uç.jpg"))); // NOI18N
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/dort.jpg"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/dort.jpg"))); // NOI18N
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/bes.jpg"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/bes.jpg"))); // NOI18N
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/altı.jpg"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/altı.jpg"))); // NOI18N
 
         btn_bir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,19 +270,19 @@ public class Yahtzee extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/3x.jpg"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/3x.jpg"))); // NOI18N
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/4x.jpg"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/4x.jpg"))); // NOI18N
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/hm.jpg"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/hm.jpg"))); // NOI18N
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/small.jpg"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/small.jpg"))); // NOI18N
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/large.jpg"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/large.jpg"))); // NOI18N
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/yahtzee.jpg"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/yahtzee.jpg"))); // NOI18N
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/soruisareti.jpg"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/soruisareti.jpg"))); // NOI18N
 
         btn_3x.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -324,35 +326,35 @@ public class Yahtzee extends javax.swing.JFrame {
             }
         });
 
-        lbl_zar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/altı.jpg"))); // NOI18N
+        lbl_zar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/altı.jpg"))); // NOI18N
         lbl_zar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lbl_zar1MousePressed(evt);
             }
         });
 
-        lbl_zar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/dort.jpg"))); // NOI18N
+        lbl_zar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/dort.jpg"))); // NOI18N
         lbl_zar2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lbl_zar2MousePressed(evt);
             }
         });
 
-        lbl_zar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/bir.jpg"))); // NOI18N
+        lbl_zar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/bir.jpg"))); // NOI18N
         lbl_zar3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lbl_zar3MousePressed(evt);
             }
         });
 
-        lbl_zar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/bes.jpg"))); // NOI18N
+        lbl_zar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/bes.jpg"))); // NOI18N
         lbl_zar4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lbl_zar4MousePressed(evt);
             }
         });
 
-        lbl_zar5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/images/iki.jpg"))); // NOI18N
+        lbl_zar5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/iki.jpg"))); // NOI18N
         lbl_zar5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lbl_zar5MousePressed(evt);
@@ -1224,7 +1226,7 @@ public class Yahtzee extends javax.swing.JFrame {
 
             }
             Client.Stop();
-            Giris g=new Giris();
+            Giris g = new Giris();
             g.setVisible(true);
             thisGame.setVisible(false);
         }
@@ -1232,11 +1234,11 @@ public class Yahtzee extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_playActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Message msg=new Message(Message.Message_Type.Disconnect);
-        msg.content="0";
+        Message msg = new Message(Message.Message_Type.Disconnect);
+        msg.content = "0";
         Client.Send(msg);
         Client.Stop();
-        Giris g=new Giris();
+        Giris g = new Giris();
         g.setVisible(true);
         thisGame.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
